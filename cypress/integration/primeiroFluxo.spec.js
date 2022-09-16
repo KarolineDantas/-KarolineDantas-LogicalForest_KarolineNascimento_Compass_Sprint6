@@ -51,12 +51,12 @@ describe('Casos de teste do fluxo 1', () => {
             Serverest.buscarProdutoPorId()
             cy.get('@idProduto')
             })
-        })
 
         it('Deve concluir compra com sucesso', () => {
             Serverest.concluirCompra().then( resposta => {
                 cy.contractValidation(resposta, 'delete-carrinhos', 200) 
                 ValidaServerest.validarConclusaoDeComprasSucesso(resposta) 
             })
-        })
+        })    
     })
+})

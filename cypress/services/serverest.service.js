@@ -13,7 +13,7 @@ export default class Serverest {
     static buscarProdutoPorId() {
        cy.request(URL_PRODUTOS).then(res => {
         cy.wrap({
-            _id: res.body._id[0]._id
+            _id: res.body._id
         }).as('idProduto')
        })
     }
