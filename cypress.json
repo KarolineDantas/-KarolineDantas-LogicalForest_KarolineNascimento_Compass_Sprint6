@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
 
   "$schema": "https://on.cypress.io/cypress.schema.json",
 
@@ -35,5 +36,25 @@
       }
     }
   }
+=======
+  "$schema": "https://on.cypress.io/cypress.schema.json","video": false,
+  "viewportWidth": 1600,
+  "viewportHeight": 900,
+  "chromeWebSecurity": false,
+  "numTestsKeptInMemory": 5,
+  "screenshotsFolder": "reports/screenshots",
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+      "reporterEnabled": "mochawesome",
+      "mochawesomeReporterOptions": {
+      "reportDir": "cypress/reports/mocha",
+      "quite": true,
+      "overwrite": false,
+      "html": false,
+      "json": true
+    }
+  }
+}
+>>>>>>> d106717164bdfcfa779de620d02bd17348fc3ea1
 
 
