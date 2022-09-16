@@ -8,26 +8,7 @@ const URL_CARRINHOS = '/carrinhos'
 export default class Serverest {
     //Ações que podemos realizar na API: buscar usuários, cadastrar novos usuários, realizar login...
 
-    //função 1
-
-    static buscarProdutoPorId() {
-       cy.request(URL_PRODUTOS).then(res => {
-        cy.wrap({
-            _id: res.body._id
-        }).as('idProduto')
-       })
-    }
-
-
-    static deletarProdutoCadastrado() {
-        return cy.request({
-            method: 'DELETE',
-            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
-            auth: {
-                bearer: Cypress.env('bearer')
-            }
-        })
-    }
+    // Ações do primeiro fluxo 
 
     static cadastrarUsuarioComSucesso() {
         let usuario = Factory.gerarUsuario()
@@ -39,6 +20,73 @@ export default class Serverest {
             failOnStatusCode: false,
         })
     }
+
+    static logar(usuario) {
+        return cy.rest('POST', URL_LOGIN, usuario)
+    }
+
+    static salvarBearer(resposta) {
+        Cypress.env('bearer', resposta.body.authorization.slice(7))
+    }
+
+    static buscarProdutos() {
+        return cy.rest('GET', URL_PRODUTOS)
+    }
+
+    static buscarProdutoPorId() {
+       cy.request(URL_PRODUTOS).then(res => {
+        cy.wrap({
+            _id: res.body._id
+        }).as('idProduto')
+       })
+    }
+
+    static cadastroDeCarrinhoComSucesso() {
+        return cy.request({
+            method: 'POST',
+            url: 'https://serverest.dev/carrinhos',
+            failOnStatusCode: false,
+            body: {
+                "produtos": [
+                  {
+                    "idProduto": "BeeJh5lz3k6kSIzA",
+                    "quantidade": 1
+                  }
+                ]
+              },
+            auth: {
+                bearer: Cypress.env('bearer'),
+            }
+        })
+    }
+
+
+
+    static concluirCompra() {
+        return cy.request({
+            method: 'DELETE',
+            url: 'https://serverest.dev/carrinhos/concluir-compra',
+            failOnStatusCode: false,
+            auth: {
+                bearer: Cypress.env('bearer'),
+            }
+        })
+    }
+
+
+    // Ações adicionadas no segundo fluxo
+
+    static deletarProdutoCadastrado() {
+        return cy.request({
+            method: 'DELETE',
+            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    
 
 
     //função 2
@@ -107,11 +155,7 @@ export default class Serverest {
             failOnStatusCode: false,
         })
     }
-
-    //função 3
-    static buscarProdutos() {
-        return cy.rest('GET', URL_PRODUTOS)
-    }
+    
 
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
@@ -123,16 +167,7 @@ export default class Serverest {
     }
 
 
-    static concluirCompra() {
-        return cy.request({
-            method: 'DELETE',
-            url: 'https://serverest.dev/carrinhos/concluir-compra',
-            failOnStatusCode: false,
-            auth: {
-                bearer: Cypress.env('bearer'),
-            }
-        })
-    }
+    
 
     static conclusaoCompra() {
         return cy.request({
@@ -160,13 +195,7 @@ export default class Serverest {
 
    
 
-    static logar(usuario) {
-        return cy.rest('POST', URL_LOGIN, usuario)
-    }
-
-    static salvarBearer(resposta) {
-        Cypress.env('bearer', resposta.body.authorization.slice(7))
-    }
+    
 
     static cadastrarProdutoComSucesso() {
         return cy.request({

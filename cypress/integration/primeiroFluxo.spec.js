@@ -15,9 +15,9 @@ const URL_CARRINHOS = '/carrinhos'
 // •	Cadastrar usuário sucesso; OK
 // •	Realizar login com sucesso; OK
 // •	Listar produtos cadastrados; OK
-// •	Buscar produto por ID; 
+// •	Buscar produto por ID; OK
 // •	Cadastrar carrinho com sucesso;
-// •	Concluir compra com sucesso.
+// •	Concluir compra com sucesso. OK
 
 
 describe('Casos de teste do fluxo 1', () => {
@@ -50,13 +50,20 @@ describe('Casos de teste do fluxo 1', () => {
         it('Deve buscar um produto pelo _id com sucesso', () => {
             Serverest.buscarProdutoPorId()
             cy.get('@idProduto')
+        })
+
+        it('Deve cadastrar carrinho com sucesso', () => {
+            Serverest.cadastroDeCarrinhoComSucesso().then( resposta => {
+                cy.contractValidation(resposta, 'post-carrinhos', 201) 
+                ValidaServerest.validarCadastroDeCarrinhoComSucesso(resposta)  
             })
+        })
 
         it('Deve concluir compra com sucesso', () => {
             Serverest.concluirCompra().then( resposta => {
                 cy.contractValidation(resposta, 'delete-carrinhos', 200) 
                 ValidaServerest.validarConclusaoDeComprasSucesso(resposta) 
             })
-        })    
-    })
+        })
+    })   
 })
