@@ -1,0 +1,8 @@
+{
+    "type": "object",
+    "required": [
+        "quantidade",
+        "produtos"
+    ],
+    "additionalProperties": true
+}

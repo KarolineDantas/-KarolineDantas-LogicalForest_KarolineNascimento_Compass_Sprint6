@@ -1,0 +1,293 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 9,
+    "passes": 6,
+    "pending": 0,
+    "failures": 3,
+    "start": "2022-09-16T15:36:39.753Z",
+    "end": "2022-09-16T15:36:42.343Z",
+    "duration": 2590,
+    "testsRegistered": 9,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "9ba1e875-fc59-4b4b-8fa2-0a04f2927ce9",
+      "title": "",
+      "fullFile": "cypress/integration/segundoFluxo.spec.js",
+      "file": "cypress/integration/segundoFluxo.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+          "title": "Casos de teste do fluxo 2",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Cadastro de usuário com sucesso",
+              "fullTitle": "Casos de teste do fluxo 2 Cadastro de usuário com sucesso",
+              "timedOut": null,
+              "duration": 243,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_factory.default.gerarUsuario;\n_serverest.default.cadastrarUsuarioComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-usuarios', 201);\n  _validaServerest.default.validarCadastroDeProdutoComSucesso(resposta);\n});",
+              "err": {},
+              "uuid": "b59caebd-88ce-4db3-af97-55908d710143",
+              "parentUUID": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentativa de cadastro com email já utilizado",
+              "fullTitle": "Casos de teste do fluxo 2 Tentativa de cadastro com email já utilizado",
+              "timedOut": null,
+              "duration": 180,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.cadastrarUsuarioSemSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-usuarios', 400);\n  _validaServerest.default.validarCadastroUsuarioSemSucesso(resposta);\n});",
+              "err": {},
+              "uuid": "647341ca-03b4-47ed-9aab-4e3acfea462c",
+              "parentUUID": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentativa de cadastro com email inválido",
+              "fullTitle": "Casos de teste do fluxo 2 Tentativa de cadastro com email inválido",
+              "timedOut": null,
+              "duration": 351,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.cadastroUsuarioEmailInvalido().then(resposta => {\n  cy.contractValidation(resposta, 'post-usuarios', 400);\n  _validaServerest.default.validarCadastroUsuarioEmailInvalido(resposta);\n});",
+              "err": {
+                "message": "AssertionError: expected undefined to equal 'Email deve ser um email válido'",
+                "estack": "AssertionError: expected undefined to equal 'Email deve ser um email válido'\n    at Function.validarCadastroUsuarioEmailInvalido (https://serverest.dev/__cypress/tests?p=cypress\\integration\\segundoFluxo.spec.js:521:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\segundoFluxo.spec.js:211:32)",
+                "diff": null
+              },
+              "uuid": "e993f8f2-a8e3-4b7d-9b84-994bff66cc2c",
+              "parentUUID": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentativa de cadastro com senha inválida",
+              "fullTitle": "Casos de teste do fluxo 2 Tentativa de cadastro com senha inválida",
+              "timedOut": null,
+              "duration": 320,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.cadastroUsuarioSenhaInvalida().then(resposta => {\n  cy.contractValidation(resposta, 'post-usuarios', 400);\n  _validaServerest.default.validarCadastroUsuarioSenhaInvalida(resposta);\n});",
+              "err": {
+                "message": "AssertionError: expected 'Cadastro realizado com sucesso' to equal 'Senha deve conter no mínimo 4 caracteres'",
+                "estack": "AssertionError: expected 'Cadastro realizado com sucesso' to equal 'Senha deve conter no mínimo 4 caracteres'\n    at Function.validarCadastroUsuarioSenhaInvalida (https://serverest.dev/__cypress/tests?p=cypress\\integration\\segundoFluxo.spec.js:525:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\segundoFluxo.spec.js:218:32)",
+                "diff": "- 'Cadastro realizado com sucesso'\n+ 'Senha deve conter no mínimo 4 caracteres'\n"
+              },
+              "uuid": "4d56c963-c031-4a7a-836f-8fb62e3459fd",
+              "parentUUID": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentativa de cadastro com nome inválido",
+              "fullTitle": "Casos de teste do fluxo 2 Tentativa de cadastro com nome inválido",
+              "timedOut": null,
+              "duration": 361,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.cadastroUsuarioNomeInvalido().then(resposta => {\n  cy.contractValidation(resposta, 'post-usuarios', 400);\n  _validaServerest.default.validarCadastroUsuarioNomeInvalido(resposta);\n});",
+              "err": {
+                "message": "AssertionError: expected 'Este email já está sendo usado' to equal 'Nome inválido, tente novamente'",
+                "estack": "AssertionError: expected 'Este email já está sendo usado' to equal 'Nome inválido, tente novamente'\n    at Function.validarCadastroUsuarioNomeInvalido (https://serverest.dev/__cypress/tests?p=cypress\\integration\\segundoFluxo.spec.js:529:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\segundoFluxo.spec.js:225:32)",
+                "diff": "- 'Este email já está sendo usado'\n+ 'Nome inválido, tente novamente'\n"
+              },
+              "uuid": "881aa798-11c0-4cdd-a02b-ba79856d5efa",
+              "parentUUID": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Deve consultar os produtos da loja",
+              "fullTitle": "Casos de teste do fluxo 2 Deve consultar os produtos da loja",
+              "timedOut": null,
+              "duration": 173,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.buscarProdutos().then(resposta => {\n  cy.contractValidation(resposta, 'get-produtos', 200);\n  _validaServerest.default.validarBuscaDeProdutos(resposta);\n});",
+              "err": {},
+              "uuid": "175c2d4a-d29b-4fb7-aaca-e4428f824819",
+              "parentUUID": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Logar sem sucesso",
+              "fullTitle": "Casos de teste do fluxo 2 Logar sem sucesso",
+              "timedOut": null,
+              "duration": 165,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.logarSemSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginSemSucesso(resposta);\n});",
+              "err": {},
+              "uuid": "4ec96592-17c6-48df-ad56-05811a91861e",
+              "parentUUID": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentativa de conclusão de compra",
+              "fullTitle": "Casos de teste do fluxo 2 Tentativa de conclusão de compra",
+              "timedOut": null,
+              "duration": 166,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.conclusaoCompra().then(resposta => {\n  cy.contractValidation(resposta, 'delete-carrinhos', 401);\n  _validaServerest.default.validarConclusaoDeComprasSemSucesso(resposta);\n});",
+              "err": {},
+              "uuid": "d51d7e66-d01f-4a9f-ac3b-fd19f84f8165",
+              "parentUUID": "0b4b0e6d-b826-41cc-8e4a-efb0b310b25c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "1d920941-7d9b-4efd-a120-34f9485d6f80",
+              "title": "Logar com sucesso",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve concluir compra com sucesso",
+                  "fullTitle": "Casos de teste do fluxo 2 Logar com sucesso Deve concluir compra com sucesso",
+                  "timedOut": null,
+                  "duration": 526,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.concluirCompra().then(resposta => {\n  cy.contractValidation(resposta, 'delete-carrinhos', 200);\n  _validaServerest.default.validarConclusaoDeComprasSucesso(resposta);\n});",
+                  "err": {},
+                  "uuid": "e8b17216-a06b-4733-9d21-ce60fe47f93e",
+                  "parentUUID": "1d920941-7d9b-4efd-a120-34f9485d6f80",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e8b17216-a06b-4733-9d21-ce60fe47f93e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 526,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "b59caebd-88ce-4db3-af97-55908d710143",
+            "647341ca-03b4-47ed-9aab-4e3acfea462c",
+            "175c2d4a-d29b-4fb7-aaca-e4428f824819",
+            "4ec96592-17c6-48df-ad56-05811a91861e",
+            "d51d7e66-d01f-4a9f-ac3b-fd19f84f8165"
+          ],
+          "failures": [
+            "e993f8f2-a8e3-4b7d-9b84-994bff66cc2c",
+            "4d56c963-c031-4a7a-836f-8fb62e3459fd",
+            "881aa798-11c0-4cdd-a02b-ba79856d5efa"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1959,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
