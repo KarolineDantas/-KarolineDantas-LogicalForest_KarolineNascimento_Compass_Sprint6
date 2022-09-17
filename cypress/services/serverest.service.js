@@ -75,21 +75,6 @@ export default class Serverest {
 
 
     // Ações adicionadas no segundo fluxo
-
-    static deletarProdutoCadastrado() {
-        return cy.request({
-            method: 'DELETE',
-            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
-            auth: {
-                bearer: Cypress.env('bearer')
-            }
-        })
-    }
-
-    
-
-
-    //função 2
     static cadastrarUsuarioSemSucesso() {
         return cy.request({
             method: 'POST',
@@ -146,17 +131,6 @@ export default class Serverest {
         })
     }
 
-    static logarSemSucesso() {
-        let usuario = Factory.gerarLogin()
-        return cy.request({
-            method: 'POST',
-            url: URL_LOGIN,
-            body: usuario,
-            failOnStatusCode: false,
-        })
-    }
-    
-
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
@@ -166,6 +140,13 @@ export default class Serverest {
         })
     }
 
+    static buscarCarrinhoPorId() {
+        cy.request(URL_CARRINHOS).then(res => {
+            cy.wrap({
+                _id: res.body._id
+            }).as('idCarrinho')
+           })
+    }
 
     
 
@@ -182,7 +163,7 @@ export default class Serverest {
         return cy.rest('GET', URL_USUARIOS)
     }
 
-    // Rota usuários, GET por ID
+ 
 
     static buscarUsuarioPorId() {
         cy.request({
@@ -195,7 +176,25 @@ export default class Serverest {
 
    
 
-    
+    static deletarProdutoCadastrado() {
+        return cy.request({
+            method: 'DELETE',
+            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    static logarSemSucesso() {
+        let usuario = Factory.gerarLogin()
+        return cy.request({
+            method: 'POST',
+            url: URL_LOGIN,
+            body: usuario,
+            failOnStatusCode: false,
+        })
+    }
 
     static cadastrarProdutoComSucesso() {
         return cy.request({

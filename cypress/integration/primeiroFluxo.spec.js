@@ -12,12 +12,12 @@ const URL_CARRINHOS = '/carrinhos'
 
 
 // Primeiro fluxo da API Serverest
-// •	Cadastrar usuário sucesso; OK
-// •	Realizar login com sucesso; OK
-// •	Listar produtos cadastrados; OK
-// •	Buscar produto por ID; OK
-// •	Cadastrar carrinho com sucesso;
-// •	Concluir compra com sucesso. OK
+// • Cadastrar usuário sucesso; 
+// • Realizar login com sucesso; 
+// • Listar produtos cadastrados; 
+// • Buscar produto por ID; 
+// • Cadastrar carrinho com sucesso;
+// • Concluir compra com sucesso. 
 
 
 describe('Casos de teste do fluxo 1', () => {
@@ -47,6 +47,7 @@ describe('Casos de teste do fluxo 1', () => {
             })
         })
 
+        //perguntar na mentoria como colocar validação
         it('Deve buscar um produto pelo _id com sucesso', () => {
             Serverest.buscarProdutoPorId()
             cy.get('@idProduto')

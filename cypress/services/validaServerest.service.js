@@ -41,8 +41,6 @@ export default class ValidaServerest {
     }
 
 
-
-
     static validarCadastroUsuarioSemSucesso(resposta) {
         expect(resposta.body.message).to.be.eq('Este email já está sendo usado')
     }
@@ -59,9 +57,11 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.eq('Nome inválido, tente novamente')
     }
 
-    static validarLoginSemSucesso(resposta) {
-        expect(resposta.body.message).to.be.eq('Email e/ou senha inválidos')
+    static validarBuscaDeCarrinhoPorIdComSucesso(resposta) {
+        expect(resposta).to.be.a('object')
     }
+
+    
 
 
 
@@ -71,7 +71,9 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.eq('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais')
     }
 
-
+    static validarLoginSemSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Email e/ou senha inválidos')
+    }
     
 
 
