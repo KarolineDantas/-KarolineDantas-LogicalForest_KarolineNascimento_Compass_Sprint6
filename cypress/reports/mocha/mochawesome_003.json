@@ -1,0 +1,352 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 11,
+    "passes": 3,
+    "pending": 0,
+    "failures": 8,
+    "start": "2022-09-17T23:39:49.049Z",
+    "end": "2022-09-17T23:39:54.352Z",
+    "duration": 5303,
+    "testsRegistered": 11,
+    "passPercent": 27.27272727272727,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "00310772-7818-471a-8d75-4f95ca05e470",
+      "title": "",
+      "fullFile": "cypress/integration/terceiroFluxo.spec.js",
+      "file": "cypress/integration/terceiroFluxo.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+          "title": "Terceiro fluxo para automação",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Logar sem sucesso",
+              "fullTitle": "Terceiro fluxo para automação Logar sem sucesso",
+              "timedOut": null,
+              "duration": 244,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.logarSemSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginSemSucesso(resposta);\n});",
+              "err": {},
+              "uuid": "71a0cb16-eeb1-4f48-bfe4-7c36251c9d42",
+              "parentUUID": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentativa de login sem email",
+              "fullTitle": "Terceiro fluxo para automação Tentativa de login sem email",
+              "timedOut": null,
+              "duration": 311,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.loginSemEmail().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginSemEmail(resposta);\n});",
+              "err": {
+                "message": "AssertionError: expected undefined to equal 'email não pode ficar em branco'",
+                "estack": "AssertionError: expected undefined to equal 'email não pode ficar em branco'\n    at Function.validarLoginSemEmail (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:721:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:215:32)",
+                "diff": null
+              },
+              "uuid": "a74b2e3e-1ca4-473f-adf1-14b4abb9e40f",
+              "parentUUID": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentativa de login sem senha",
+              "fullTitle": "Terceiro fluxo para automação Tentativa de login sem senha",
+              "timedOut": null,
+              "duration": 322,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.loginSemSenha().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginSemSenha(resposta);\n});",
+              "err": {
+                "message": "AssertionError: expected undefined to equal 'email não pode ficar em branco'",
+                "estack": "AssertionError: expected undefined to equal 'email não pode ficar em branco'\n    at Function.validarLoginSemSenha (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:725:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:222:32)",
+                "diff": null
+              },
+              "uuid": "ecb53cc5-8b32-4904-9fbe-a028b70d3750",
+              "parentUUID": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Tentativa de login com e-mail inválido",
+              "fullTitle": "Terceiro fluxo para automação Tentativa de login com e-mail inválido",
+              "timedOut": null,
+              "duration": 311,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "_serverest.default.loginEmailInvalido().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginEmailInvalido(resposta);\n});",
+              "err": {
+                "message": "AssertionError: expected undefined to equal 'Email deve ser um email válido'",
+                "estack": "AssertionError: expected undefined to equal 'Email deve ser um email válido'\n    at Function.validarLoginEmailInvalido (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:729:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:229:32)",
+                "diff": null
+              },
+              "uuid": "0b364a94-644f-46c2-acff-89af518a29ae",
+              "parentUUID": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+              "title": "Logar com sucesso",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Deve buscar um usuário por _id sem sucesso",
+                  "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve buscar um usuário por _id sem sucesso",
+                  "timedOut": null,
+                  "duration": 509,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarUsuarioPorIdErro().then(resposta => {\n  cy.contractValidation(resposta, 'get-usuarios-id', 400);\n  _validaServerest.default.validarBuscaDeUsuarioPorIdSemSucesso(resposta);\n});",
+                  "err": {
+                    "message": "TypeError: Cannot read properties of undefined (reading 'then')",
+                    "estack": "TypeError: Cannot read properties of undefined (reading 'then')\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:244:50)",
+                    "diff": null
+                  },
+                  "uuid": "99af3134-90ff-4102-93ec-6b63e6f61370",
+                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve buscar um usuário por _id com sucesso",
+                  "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve buscar um usuário por _id com sucesso",
+                  "timedOut": null,
+                  "duration": 493,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarUsuarioPorId().then(resposta => {\n  cy.contractValidation(resposta, 'get-usuarios-id', 200);\n  _validaServerest.default.validarBuscaDeUsuarioPorIdSucesso(resposta);\n});",
+                  "err": {
+                    "message": "TypeError: Cannot read properties of undefined (reading 'then')",
+                    "estack": "TypeError: Cannot read properties of undefined (reading 'then')\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:252:46)",
+                    "diff": null
+                  },
+                  "uuid": "b6738e33-b6b5-431c-907c-bccec359eb36",
+                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve consultar os produtos da loja",
+                  "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve consultar os produtos da loja",
+                  "timedOut": null,
+                  "duration": 518,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarProdutos().then(resposta => {\n  cy.contractValidation(resposta, 'get-produtos', 200);\n  _validaServerest.default.validarBuscaDeProdutos(resposta);\n});",
+                  "err": {},
+                  "uuid": "f1336c3e-c64b-463f-aac8-d71311f0498b",
+                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve cadastrar carrinho com sucesso",
+                  "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve cadastrar carrinho com sucesso",
+                  "timedOut": null,
+                  "duration": 499,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.cadastroDeCarrinhoComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 201);\n  _validaServerest.default.validarCadastroDeCarrinhoComSucesso(resposta);\n});",
+                  "err": {},
+                  "uuid": "7a07b63a-cc71-4f32-bbf2-3fa852f6a14f",
+                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve buscar carrinho por _id sem sucesso",
+                  "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve buscar carrinho por _id sem sucesso",
+                  "timedOut": null,
+                  "duration": 636,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarCarrinhoPorIdSemSucesso();\ncy.get('@idCarrinho').then(resposta => {\n  cy.contractValidation(resposta, 'get-carrinhos-id', 400);\n  _validaServerest.default.validarBuscaDeCarrinhoPorIdComSucesso(resposta);\n});",
+                  "err": {
+                    "message": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined",
+                    "estack": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\support\\index.js:227:13)",
+                    "diff": null
+                  },
+                  "uuid": "07e69fb7-06ab-418e-95bc-a6cef6028307",
+                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve buscar carrinho por _id com sucesso",
+                  "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve buscar carrinho por _id com sucesso",
+                  "timedOut": null,
+                  "duration": 658,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarCarrinhoPorId();\ncy.get('@idCarrinho').then(resposta => {\n  cy.contractValidation(resposta, 'get-carrinhos-id', 200);\n  _validaServerest.default.validarBuscaDeCarrinhoPorIdComSucesso(resposta);\n});",
+                  "err": {
+                    "message": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined",
+                    "estack": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\support\\index.js:227:13)",
+                    "diff": null
+                  },
+                  "uuid": "a1e837d0-e3cd-46a9-887a-acc8bece8e7a",
+                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve cancelar compra com sucesso",
+                  "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve cancelar compra com sucesso",
+                  "timedOut": null,
+                  "duration": 709,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.cancelarCompraComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'delete-carrinhos', 200);\n  _validaServerest.default.validarConclusaoDeComprasSucesso(resposta);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 'Registro excluído com sucesso. Estoque dos produtos reabastecido' to equal 'Registro excluído com sucesso'",
+                    "estack": "AssertionError: expected 'Registro excluído com sucesso. Estoque dos produtos reabastecido' to equal 'Registro excluído com sucesso'\n    at Function.validarConclusaoDeComprasSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:693:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:297:34)",
+                    "diff": "- 'Registro excluído com sucesso. Estoque dos produtos reabastecido'\n+ 'Registro excluído com sucesso'\n"
+                  },
+                  "uuid": "72dd3a52-a905-4c2d-acea-94586eb1fdd2",
+                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f1336c3e-c64b-463f-aac8-d71311f0498b",
+                "7a07b63a-cc71-4f32-bbf2-3fa852f6a14f"
+              ],
+              "failures": [
+                "99af3134-90ff-4102-93ec-6b63e6f61370",
+                "b6738e33-b6b5-431c-907c-bccec359eb36",
+                "07e69fb7-06ab-418e-95bc-a6cef6028307",
+                "a1e837d0-e3cd-46a9-887a-acc8bece8e7a",
+                "72dd3a52-a905-4c2d-acea-94586eb1fdd2"
+              ],
+              "pending": [],
+              "skipped": [],
+              "duration": 4022,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [
+            "71a0cb16-eeb1-4f48-bfe4-7c36251c9d42"
+          ],
+          "failures": [
+            "a74b2e3e-1ca4-473f-adf1-14b4abb9e40f",
+            "ecb53cc5-8b32-4904-9fbe-a028b70d3750",
+            "0b364a94-644f-46c2-acff-89af518a29ae"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1188,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,14 +1,14 @@
 {
   "stats": {
     "suites": 2,
-    "tests": 4,
-    "passes": 2,
+    "tests": 6,
+    "passes": 3,
     "pending": 0,
-    "failures": 2,
-    "start": "2022-09-16T15:36:32.555Z",
-    "end": "2022-09-16T15:36:34.431Z",
-    "duration": 1876,
-    "testsRegistered": 4,
+    "failures": 3,
+    "start": "2022-09-17T23:39:23.998Z",
+    "end": "2022-09-17T23:39:27.531Z",
+    "duration": 3533,
+    "testsRegistered": 6,
     "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "c24cd95a-45aa-4351-8c2d-2df1988ec0d6",
+      "uuid": "a0f1e627-9c8e-483e-8c03-99f808a789ae",
       "title": "",
       "fullFile": "cypress/integration/primeiroFluxo.spec.js",
       "file": "cypress/integration/primeiroFluxo.spec.js",
@@ -27,8 +27,8 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "b0bd20c5-87a1-41a4-8bb1-57b70a5d8bbf",
-          "title": "Casos de teste do fluxo 1",
+          "uuid": "622c87e9-f585-4c59-a8b5-9d67d2a4b2fc",
+          "title": "Primeiro fluxo para automação",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
@@ -36,9 +36,9 @@
           "tests": [
             {
               "title": "Cadastro de usuário com sucesso",
-              "fullTitle": "Casos de teste do fluxo 1 Cadastro de usuário com sucesso",
+              "fullTitle": "Primeiro fluxo para automação Cadastro de usuário com sucesso",
               "timedOut": null,
-              "duration": 447,
+              "duration": 417,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,37 +47,15 @@
               "context": null,
               "code": "_factory.default.gerarUsuario;\n_serverest.default.cadastrarUsuarioComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-usuarios', 201);\n  _validaServerest.default.validarCadastroDeProdutoComSucesso(resposta);\n});",
               "err": {},
-              "uuid": "9930cf36-64e0-4646-a7ae-5f88146fa2c5",
-              "parentUUID": "b0bd20c5-87a1-41a4-8bb1-57b70a5d8bbf",
-              "isHook": false,
-              "skipped": false
-            },
-            {
-              "title": "Deve concluir compra com sucesso",
-              "fullTitle": "Casos de teste do fluxo 1 Deve concluir compra com sucesso",
-              "timedOut": null,
-              "duration": 153,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
-              "pending": false,
-              "context": null,
-              "code": "_serverest.default.concluirCompra().then(resposta => {\n  cy.contractValidation(resposta, 'delete-carrinhos', 200);\n  _validaServerest.default.validarConclusaoDeComprasSucesso(resposta);\n});",
-              "err": {
-                "message": "CypressError: `cy.request()` failed trying to load:\n\nhttps://serverest.dev/carrinhos/concluir-compra\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: no auth mechanism defined\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: https://serverest.dev/carrinhos/concluir-compra\n\n-----------------------------------------------------------\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nhttps://on.cypress.io/request",
-                "estack": "CypressError: `cy.request()` failed trying to load:\n\nhttps://serverest.dev/carrinhos/concluir-compra\n\nWe attempted to make an http request to this URL but the request failed without a response.\n\nWe received this error at the network level:\n\n  > Error: no auth mechanism defined\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: DELETE\nURL: https://serverest.dev/carrinhos/concluir-compra\n\n-----------------------------------------------------------\n\nCommon situations why this would fail:\n  - you don't have internet access\n  - you forgot to run / boot your web server\n  - your web server isn't accessible\n  - you have weird network configuration settings on your computer\n\nhttps://on.cypress.io/request\n    at https://serverest.dev/__cypress/runner/cypress_runner.js:165463:78\n    at tryCatcher (https://serverest.dev/__cypress/runner/cypress_runner.js:13022:23)\n    at https://serverest.dev/__cypress/runner/cypress_runner.js:8161:37\n    at tryCatcher (https://serverest.dev/__cypress/runner/cypress_runner.js:13022:23)\n    at Promise._settlePromiseFromHandler (https://serverest.dev/__cypress/runner/cypress_runner.js:10957:31)\n    at Promise._settlePromise (https://serverest.dev/__cypress/runner/cypress_runner.js:11014:18)\n    at Promise._settlePromise0 (https://serverest.dev/__cypress/runner/cypress_runner.js:11059:10)\n    at Promise._settlePromises (https://serverest.dev/__cypress/runner/cypress_runner.js:11135:18)\n    at _drainQueueStep (https://serverest.dev/__cypress/runner/cypress_runner.js:7729:12)\n    at _drainQueue (https://serverest.dev/__cypress/runner/cypress_runner.js:7722:9)\n    at Async.../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://serverest.dev/__cypress/runner/cypress_runner.js:7738:5)\n    at Async.drainQueues (https://serverest.dev/__cypress/runner/cypress_runner.js:7608:14)\nFrom Your Spec Code:\n    at Function.concluirCompra (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:377:15)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:228:24)\n\nFrom Node.js Internals:\n  RequestError: Error: no auth mechanism defined\n      at new RequestError (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\request-promise-core\\lib\\errors.js:14:15)\n      at Request.plumbing.callback (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\request-promise-core\\lib\\plumbing.js:87:29)\n      at Request.RP$callback [as _callback] (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\request-promise-core\\lib\\plumbing.js:46:31)\n      at self.callback (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\@cypress\\request\\request.js:183:22)\n      at Request.emit (node:events:390:28)\n      at Auth.onRequest (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\@cypress\\request\\lib\\auth.js:132:18)\n      at Request.auth (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\@cypress\\request\\request.js:1343:14)\n      at Request.init (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\@cypress\\request\\request.js:376:10)\n      at Request.RP$initInterceptor [as init] (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\request-promise-core\\configure\\request2.js:45:29)\n      at new Request (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\@cypress\\request\\request.js:125:8)\n      at request (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\@cypress\\request\\index.js:53:10)\n      at C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\node_modules\\@cypress\\request\\index.js:100:12\n      at createRetryingRequestPromise (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\lib\\request.js:216:10)\n      at Object.create (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\lib\\request.js:471:16)\n      at send (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\lib\\request.js:767:21)\n      at tryCatcher (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n      at Promise._settlePromiseFromHandler (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\promise.js:547:31)\n      at Promise._settlePromise (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\promise.js:604:18)\n      at Promise._settlePromise0 (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\promise.js:649:10)\n      at Promise._settlePromises (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\promise.js:729:18)\n      at _drainQueueStep (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\async.js:93:12)\n      at _drainQueue (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\async.js:86:9)\n      at Async._drainQueues (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\async.js:102:5)\n      at Immediate.Async.drainQueues [as _onImmediate] (C:\\Users\\Desktop\\AppData\\Local\\Cypress\\Cache\\9.7.0\\Cypress\\resources\\app\\packages\\server\\node_modules\\bluebird\\js\\release\\async.js:15:14)\n      at processImmediate (node:internal/timers:464:21)\n  ",
-                "diff": null
-              },
-              "uuid": "21c4dcea-8408-40ca-ba08-53d7bbc49518",
-              "parentUUID": "b0bd20c5-87a1-41a4-8bb1-57b70a5d8bbf",
+              "uuid": "f28d43bc-f987-455f-be0d-a75400ec604a",
+              "parentUUID": "622c87e9-f585-4c59-a8b5-9d67d2a4b2fc",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [
             {
-              "uuid": "b18ce4b2-c0b0-49d7-8c6e-21392b2c3ee6",
+              "uuid": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
               "title": "Logar com sucesso",
               "fullFile": "",
               "file": "",
@@ -86,9 +64,9 @@
               "tests": [
                 {
                   "title": "Deve consultar os produtos da loja",
-                  "fullTitle": "Casos de teste do fluxo 1 Logar com sucesso Deve consultar os produtos da loja",
+                  "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve consultar os produtos da loja",
                   "timedOut": null,
-                  "duration": 543,
+                  "duration": 524,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -97,58 +75,121 @@
                   "context": null,
                   "code": "_serverest.default.buscarProdutos().then(resposta => {\n  cy.contractValidation(resposta, 'get-produtos', 200);\n  _validaServerest.default.validarBuscaDeProdutos(resposta);\n});",
                   "err": {},
-                  "uuid": "e44cfb25-92a4-43c4-8e34-ec31b21674b8",
-                  "parentUUID": "b18ce4b2-c0b0-49d7-8c6e-21392b2c3ee6",
+                  "uuid": "e0069b12-5e8d-471f-a813-95f1efdedafc",
+                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
                   "isHook": false,
                   "skipped": false
                 },
                 {
-                  "title": "Deve buscar um produto pelo _id com sucesso",
-                  "fullTitle": "Casos de teste do fluxo 1 Logar com sucesso Deve buscar um produto pelo _id com sucesso",
+                  "title": "Deve buscar um produto pelo _id sem sucesso",
+                  "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve buscar um produto pelo _id sem sucesso",
                   "timedOut": null,
-                  "duration": 675,
+                  "duration": 682,
                   "state": "failed",
                   "speed": null,
                   "pass": false,
                   "fail": true,
                   "pending": false,
                   "context": null,
-                  "code": "_serverest.default.buscarProdutoPorId();\ncy.get('@idProduto');",
+                  "code": "_serverest.default.buscarProdutoPorIdSemSucesso();\ncy.get('@idProduto').then(resposta => {\n  cy.contractValidation(resposta, 'get-produtos-id', 400);\n  _validaServerest.default.validarBuscaDeProdutosPorIdSemSucesso(resposta);\n});",
                   "err": {
-                    "message": "TypeError: Cannot read properties of undefined (reading '0')",
-                    "estack": "TypeError: Cannot read properties of undefined (reading '0')\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:268:26)",
+                    "message": "ReferenceError: _id is not defined",
+                    "estack": "ReferenceError: _id is not defined\n    at Function.validarBuscaDeProdutosPorIdSemSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:645:52)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:234:34)",
                     "diff": null
                   },
-                  "uuid": "3dad6310-345f-4ed0-ba4f-0d7f08bca4c6",
-                  "parentUUID": "b18ce4b2-c0b0-49d7-8c6e-21392b2c3ee6",
+                  "uuid": "72f48b29-9823-4a21-bd96-d4904ff64355",
+                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve buscar um produto pelo _id com sucesso",
+                  "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve buscar um produto pelo _id com sucesso",
+                  "timedOut": null,
+                  "duration": 689,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.buscarProdutoPorId();\ncy.get('@idProduto').then(resposta => {\n  cy.contractValidation(resposta, 'get-produtos-id', 200);\n  _validaServerest.default.validarBuscaDeProdutosPorId(resposta);\n});",
+                  "err": {
+                    "message": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined",
+                    "estack": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\support\\index.js:227:13)",
+                    "diff": null
+                  },
+                  "uuid": "58a428cb-9d7e-4bd0-8162-c6f91cbf98ee",
+                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve cadastrar carrinho com sucesso",
+                  "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve cadastrar carrinho com sucesso",
+                  "timedOut": null,
+                  "duration": 655,
+                  "state": "failed",
+                  "speed": null,
+                  "pass": false,
+                  "fail": true,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.cadastroDeCarrinhoComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 201);\n  _validaServerest.default.validarCadastroDeCarrinhoComSucesso(resposta);\n});",
+                  "err": {
+                    "message": "AssertionError: expected 'Não é permitido ter mais de 1 carrinho' to equal 'Cadastro realizado com sucesso'",
+                    "estack": "AssertionError: expected 'Não é permitido ter mais de 1 carrinho' to equal 'Cadastro realizado com sucesso'\n    at Function.validarCadastroDeCarrinhoComSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:650:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:251:34)",
+                    "diff": "- 'Não é permitido ter mais de 1 carrinho'\n+ 'Cadastro realizado com sucesso'\n"
+                  },
+                  "uuid": "5702047b-4e16-4949-b06f-d0fe2576a8d3",
+                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Deve concluir compra com sucesso",
+                  "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve concluir compra com sucesso",
+                  "timedOut": null,
+                  "duration": 508,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "_serverest.default.concluirCompra().then(resposta => {\n  cy.contractValidation(resposta, 'delete-carrinhos', 200);\n  _validaServerest.default.validarConclusaoDeComprasSucesso(resposta);\n});",
+                  "err": {},
+                  "uuid": "7d9cc2d7-f416-48b5-9de2-0823e062cfa9",
+                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e44cfb25-92a4-43c4-8e34-ec31b21674b8"
+                "e0069b12-5e8d-471f-a813-95f1efdedafc",
+                "7d9cc2d7-f416-48b5-9de2-0823e062cfa9"
               ],
               "failures": [
-                "3dad6310-345f-4ed0-ba4f-0d7f08bca4c6"
+                "72f48b29-9823-4a21-bd96-d4904ff64355",
+                "58a428cb-9d7e-4bd0-8162-c6f91cbf98ee",
+                "5702047b-4e16-4949-b06f-d0fe2576a8d3"
               ],
               "pending": [],
               "skipped": [],
-              "duration": 1218,
+              "duration": 3058,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             }
           ],
           "passes": [
-            "9930cf36-64e0-4646-a7ae-5f88146fa2c5"
+            "f28d43bc-f987-455f-be0d-a75400ec604a"
           ],
-          "failures": [
-            "21c4dcea-8408-40ca-ba08-53d7bbc49518"
-          ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 600,
+          "duration": 417,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

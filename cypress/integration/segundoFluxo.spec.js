@@ -21,7 +21,7 @@ const URL_CARRINHOS = '/carrinhos'
 // • Concluir compra com sucesso. 
 
 
-describe('Casos de teste do fluxo 2', () => {
+describe('Segundo fluxo para automação', () => {
 
     it('Tentativa de cadastro com email já utilizado', () => {
         Serverest.cadastrarUsuarioSemSucesso().then( resposta => {

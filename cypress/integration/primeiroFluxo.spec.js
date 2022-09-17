@@ -20,7 +20,7 @@ const URL_CARRINHOS = '/carrinhos'
 // • Concluir compra com sucesso. 
 
 
-describe('Casos de teste do fluxo 1', () => {
+describe('Primeiro fluxo para automação', () => {
 
     it('Cadastro de usuário com sucesso', () => {
         Factory.gerarUsuario

@@ -29,31 +29,40 @@ export default class Serverest {
         Cypress.env('bearer', resposta.body.authorization.slice(7))
     }
 
+    static buscarUsuarioParaLogin() {
+        cy.request(URL_USUARIOS).then(res => {
+            cy.wrap({
+                email: res.body.usuarios[0].email,
+                password: res.body.usuarios[0].password
+            }).as('usuarioLogin')
+        })
+    }
+
     static buscarProdutos() {
         return cy.rest('GET', URL_PRODUTOS)
     }
 
     static buscarProdutoPorId() {
-       cy.request(URL_PRODUTOS).then(res => {
-        cy.wrap({
-            _id: res.body._id
-        }).as('idProduto')
-       })
+        cy.request(URL_PRODUTOS).then(res => {
+            cy.wrap({
+                _id: res.body._id
+            }).as('idProduto')
+        })
     }
 
     static buscarProdutoPorIdSemSucesso() {
         cy.request(URL_PRODUTOS).then(res => {
-         cy.wrap({
-             _id: '_id'
-         }).as('idProduto')
+            cy.wrap({
+                _id: '_id'
+            }).as('idProduto')
         })
-     }
+    }
 
     static buscarProdutoPorId2() {
         return cy.request({
-        method: 'GET',
-        url: 'URL_PRODUTOS' + Cypress.env('idBuscaDeProduto'),
-     })
+            method: 'GET',
+            url: 'URL_PRODUTOS' + Cypress.env('idBuscaDeProduto'),
+        })
     }
 
     static cadastroDeCarrinhoComSucesso() {
@@ -63,12 +72,12 @@ export default class Serverest {
             failOnStatusCode: false,
             body: {
                 "produtos": [
-                  {
-                    "idProduto": "BeeJh5lz3k6kSIzA",
-                    "quantidade": 1
-                  }
+                    {
+                        "idProduto": "BeeJh5lz3k6kSIzA",
+                        "quantidade": 1
+                    }
                 ]
-              },
+            },
             auth: {
                 bearer: Cypress.env('bearer'),
             }
@@ -143,21 +152,12 @@ export default class Serverest {
         })
     }
 
-    static buscarUsuarioParaLogin() {
-        cy.request(URL_USUARIOS).then(res => {
-            cy.wrap({
-                email: res.body.usuarios[0].email,
-                password: res.body.usuarios[0].password
-            }).as('usuarioLogin')
-        })
-    }
-
     static buscarCarrinhoPorId() {
         cy.request(URL_CARRINHOS).then(res => {
             cy.wrap({
                 _id: res.body._id
             }).as('idCarrinho')
-           })
+        })
     }
 
 
@@ -184,7 +184,7 @@ export default class Serverest {
             body: {
                 "email": "",
                 "password": "teste"
-              },
+            },
             failOnStatusCode: false,
         })
     }
@@ -196,7 +196,7 @@ export default class Serverest {
             body: {
                 "email": "teste@gmail.com",
                 "password": ""
-              },
+            },
             failOnStatusCode: false,
         })
     }
@@ -208,7 +208,7 @@ export default class Serverest {
             body: {
                 "email": "teste@tester",
                 "password": "teste"
-              },
+            },
             failOnStatusCode: false,
         })
     }
@@ -249,18 +249,75 @@ export default class Serverest {
         })
     }
 
-   
 
+    // Ações adicionadas no quarto fluxo
 
+    static cadastroDeCarrinhoSemToken() {
+        return cy.request({
+            method: 'POST',
+            url: 'https://serverest.dev/carrinhos',
+            failOnStatusCode: false,
+            body: {
+                "produtos": [
+                    {
+                        "idProduto": "BeeJh5lz3k6kSIzA",
+                        "quantidade": 1
+                    }
+                ]
+            }
+        })
+    }
 
+    static cadastroDeCarrinhoComProdutoDuplicado() {
+        return cy.request({
+            method: 'POST',
+            url: 'https://serverest.dev/carrinhos',
+            failOnStatusCode: false,
+            body: {
+                "produtos": [
+                    {
+                        "idProduto": "BeeJh5lz3k6kSIzA",
+                        "quantidade": 1,
+                        "idProduto": "BeeJh5lz3k6kSIzA",
+                        "quantidade": 4
+                    }
+                ]
+            },
+            auth: {
+                bearer: Cypress.env('bearer'),
+            }
+        })
+    }
 
+    static cadastroDeCarrinhoParaMesmoUsuario() {
+        return cy.request({
+            method: 'POST',
+            url: 'https://serverest.dev/carrinhos',
+            failOnStatusCode: false,
+            body: {
+                "produtos": [
+                    {
+                        "idProduto": "BeeJh5lz3k6kSIzA",
+                        "quantidade": 1,
+                    }
+                ]
+            },
+            auth: {
+                bearer: Cypress.env('bearer'),
+            }
+        })
+    }
 
+    static segundoBearer(resposta) {
+        Cypress.env('bearer', resposta.body.authorization.slice(8))
+    }
 
-
-
-
-
-    
-
-    
+    static segundoUsuarioParaLogin() {
+        cy.request(URL_USUARIOS).then(res => {
+            cy.wrap({
+                email: res.body.usuarios[1].email,
+                password: res.body.usuarios[1].password
+            }).as('segundoUsuarioLogin')
+        })
+    }
 }

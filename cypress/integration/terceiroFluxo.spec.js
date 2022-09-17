@@ -24,7 +24,7 @@ const URL_CARRINHOS = '/carrinhos'
 
 
 
-describe('Casos de teste do fluxo 3', () => {
+describe('Terceiro fluxo para automação', () => {
 
     it('Logar sem sucesso', () => {
         Serverest.logarSemSucesso().then( resposta => {
