@@ -26,10 +26,12 @@ export default class ValidaServerest {
     }
 
     static validarBuscaDeProdutosPorId(resposta) {
-        expect(resposta.body.produtos[0]).to.haveOwnProperty('nome')
-        expect(resposta.body.produtos[0]).to.haveOwnProperty('preco')
-        expect(resposta.body.produtos[0]).to.haveOwnProperty('descricao')
+        Cypress.env('idBuscaDeProduto', resposta.body)
+    }
+
+    static validarBuscaDeProdutosPorIdSemSucesso(resposta) {
         Cypress.env('idBuscaDeProduto', resposta.body, _id)
+        expect(resposta.body.message).to.be.eq('Produto não encontrado')   
     }
 
     static validarCadastroDeCarrinhoComSucesso(resposta) {

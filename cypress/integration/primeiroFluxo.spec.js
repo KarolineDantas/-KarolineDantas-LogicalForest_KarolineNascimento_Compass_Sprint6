@@ -48,6 +48,15 @@ describe('Casos de teste do fluxo 1', () => {
         })
 
         // retorna _id indefinido
+        it('Deve buscar um produto pelo _id sem sucesso', () => {
+            Serverest.buscarProdutoPorIdSemSucesso()
+            cy.get('@idProduto').then(resposta => {
+                cy.contractValidation(resposta, 'get-produtos-id', 400) 
+                ValidaServerest.validarBuscaDeProdutosPorIdSemSucesso(resposta)
+            })
+        })
+
+        // retorna _id indefinido
         it('Deve buscar um produto pelo _id com sucesso', () => {
             Serverest.buscarProdutoPorId()
             cy.get('@idProduto').then(resposta => {

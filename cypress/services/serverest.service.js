@@ -41,6 +41,14 @@ export default class Serverest {
        })
     }
 
+    static buscarProdutoPorIdSemSucesso() {
+        cy.request(URL_PRODUTOS).then(res => {
+         cy.wrap({
+             _id: '_id'
+         }).as('idProduto')
+        })
+     }
+
     static buscarProdutoPorId2() {
         return cy.request({
         method: 'GET',
