@@ -1,4 +1,8 @@
 {
-    "message": "Cadastro realizado com sucesso",
-    "_id": "jogfODIlXsqxNFS2"
-  }
+  "type": "object",
+  "required": [
+      "message",
+      "_id"
+  ],
+  "additionalProperties": true
+}

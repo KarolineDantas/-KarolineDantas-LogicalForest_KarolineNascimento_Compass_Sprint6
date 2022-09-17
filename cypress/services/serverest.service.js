@@ -41,6 +41,13 @@ export default class Serverest {
        })
     }
 
+    static buscarProdutoPorId2() {
+        return cy.request({
+        method: 'GET',
+        url: 'URL_PRODUTOS' + Cypress.env('idBuscaDeProduto'),
+     })
+    }
+
     static cadastroDeCarrinhoComSucesso() {
         return cy.request({
             method: 'POST',
@@ -60,8 +67,6 @@ export default class Serverest {
         })
     }
 
-
-
     static concluirCompra() {
         return cy.request({
             method: 'DELETE',
@@ -72,7 +77,6 @@ export default class Serverest {
             }
         })
     }
-
 
     // Ações adicionadas no segundo fluxo
     static cadastrarUsuarioSemSucesso() {
@@ -148,43 +152,12 @@ export default class Serverest {
            })
     }
 
-    
-
-    static conclusaoCompra() {
-        return cy.request({
-            method: 'DELETE',
-            url: 'https://serverest.dev/carrinhos/concluir-compra',
-            failOnStatusCode: false,
-        })
-    }
-
 
     static buscarUsuarios() {
         return cy.rest('GET', URL_USUARIOS)
     }
 
- 
-
-    static buscarUsuarioPorId() {
-        cy.request({
-            method: 'GET',
-            url: `${URL_USUARIOS}/${Cypress.env('idUsuario')}`,
-            failOnStatusCode: false,
-            _id: 'idUsuario'
-        })
-    }
-
-   
-
-    static deletarProdutoCadastrado() {
-        return cy.request({
-            method: 'DELETE',
-            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
-            auth: {
-                bearer: Cypress.env('bearer')
-            }
-        })
-    }
+    // Ações adicionadas no terceiro fluxo 
 
     static logarSemSucesso() {
         let usuario = Factory.gerarLogin()
@@ -196,34 +169,90 @@ export default class Serverest {
         })
     }
 
-    static cadastrarProdutoComSucesso() {
+    static loginSemEmail() {
         return cy.request({
             method: 'POST',
-            url: URL_PRODUTOS,
+            url: URL_LOGIN,
             body: {
-                "nome": "C3 MV Horizontal",
-                "preco": 47,
-                "descricao": "Mouse",
-                "quantidade": 381
-            },
-            failOnStatusCode: true,
+                "email": "",
+                "password": "teste"
+              },
+            failOnStatusCode: false,
+        })
+    }
+
+    static loginSemSenha() {
+        return cy.request({
+            method: 'POST',
+            url: URL_LOGIN,
+            body: {
+                "email": "teste@gmail.com",
+                "password": ""
+              },
+            failOnStatusCode: false,
+        })
+    }
+
+    static loginEmailInvalido() {
+        return cy.request({
+            method: 'POST',
+            url: URL_LOGIN,
+            body: {
+                "email": "teste@tester",
+                "password": "teste"
+              },
+            failOnStatusCode: false,
+        })
+    }
+
+    static buscarUsuarioPorIdErro() {
+        cy.request({
+            method: 'GET',
+            url: 'https://serverest.dev/usuarios/null',
+            failOnStatusCode: false,
+        })
+    }
+
+    static buscarUsuarioPorId() {
+        cy.request({
+            method: 'GET',
+            url: `${URL_USUARIOS}/${Cypress.env('idUsuario')}`,
+            failOnStatusCode: false,
+            _id: 'idUsuario'
+        })
+    }
+
+    static buscarCarrinhoPorIdSemSucesso() {
+        cy.request(URL_CARRINHOS).then(res => {
+            cy.wrap({
+                _id: res.body._id
+            }).as('idCarrinho')
+        })
+    }
+
+    static cancelarCompraComSucesso() {
+        return cy.request({
+            method: 'DELETE',
+            url: 'https://serverest.dev/carrinhos/cancelar-compra',
+            failOnStatusCode: false,
             auth: {
                 bearer: Cypress.env('bearer'),
             }
         })
     }
 
-    static cadastrarProdutoComSucesso() {
-        let produto = Factory.gerarProduto()
+   
 
-        return cy.request({
-            method: 'POST',
-            url: URL_PRODUTOS,
-            body: produto,
-            failOnStatusCode: true,
-            auth: {
-                bearer: Cypress.env("bearer")
-            }
-        })
-    }
+
+
+
+
+
+
+
+
+
+    
+
+    
 }

@@ -27,6 +27,12 @@ export default class Factory {
         }
     }
 
+    static loginEmBranco() {
+        return {
+            "password": faker.internet.password(),
+        }
+    }
+
     static gerarInteiroAleatorio(){
         return faker.datatype.number(5)
     }

@@ -61,31 +61,45 @@ export default class ValidaServerest {
         expect(resposta).to.be.a('object')
     }
 
-    
-
-
-
-    
-
-    static validarConclusaoDeComprasSemSucesso(resposta) {
-        expect(resposta.body.message).to.be.eq('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais')
-    }
-
     static validarLoginSemSucesso(resposta) {
         expect(resposta.body.message).to.be.eq('Email e/ou senha inválidos')
     }
     
 
+    static validarLoginSemEmail(resposta) {
+        expect(resposta.body.message).to.be.eq('email não pode ficar em branco')
+    }
 
-    static validarBuscaDeUsuarioPorId(resposta) {
-        expect(resposta.status).to.be.equal(200)
-        expect(resposta).to.be.a('object')
-        expect(resposta.body.message).to.be.a('string')
-        expect(resposta.body).to.haveOwnProperty('nome')
-        expect(resposta.body).to.haveOwnProperty('email')
-        expect(resposta.body).to.haveOwnProperty('password')
+    static validarLoginSemSenha(resposta) {
+        expect(resposta.body.message).to.be.eq('email não pode ficar em branco')
+    }
+
+    static validarLoginEmailInvalido(resposta) {
+        expect(resposta.body.message).to.be.eq('Email deve ser um email válido')
+    }
+
+    static validarBuscaDeUsuarioPorIdSemSucesso(resposta) {
+        expect(resposta.status).to.be.equal(400)
         expect(resposta.body).to.haveOwnProperty('_id')
     }
+
+    static validarBuscaDeUsuarioPorIdSucesso(resposta) {
+        expect(resposta.status).to.be.equal(200)
+        expect(resposta.body).to.haveOwnProperty('_id')
+    }
+
+    static validarConclusaoDeComprasSemSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais')
+    }
+
+    static cancelarCompraComSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Registro excluído com sucesso | Não foi encontrado carrinho para esse usuário')
+    }
+
+    
+
+
+    
 
 
 

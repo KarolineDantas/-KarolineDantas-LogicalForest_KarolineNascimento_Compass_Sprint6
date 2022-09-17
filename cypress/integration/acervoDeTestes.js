@@ -33,8 +33,6 @@ context('Logar com sucesso', () => {
         })
     })
 
-
-
     it('Deve postar um novo produto com sucesso', () => {
         Serverest.cadastrarProdutoComSucesso().then(res => {
             ValidaServerest.validarCadastroDeProdutoComSucesso(res)
@@ -112,6 +110,46 @@ it('Deve buscar todos os produtos cadastrados', () => {
     })
 })
 
+// static cadastrarProdutoComSucesso() {
+//     return cy.request({
+//         method: 'POST',
+//         url: URL_PRODUTOS,
+//         body: {
+//             "nome": "C3 MV Horizontal",
+//             "preco": 47,
+//             "descricao": "Mouse",
+//             "quantidade": 381
+//         },
+//         failOnStatusCode: true,
+//         auth: {
+//             bearer: Cypress.env('bearer'),
+//         }
+//     })
+// }
+
+// static cadastrarProdutoComSucesso() {
+//     let produto = Factory.gerarProduto()
+
+//     return cy.request({
+//         method: 'POST',
+//         url: URL_PRODUTOS,
+//         body: produto,
+//         failOnStatusCode: true,
+//         auth: {
+//             bearer: Cypress.env("bearer")
+//         }
+//     })
+// }
+
+// static deletarProdutoCadastrado() {
+//     return cy.request({
+//         method: 'DELETE',
+//         url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+//         auth: {
+//             bearer: Cypress.env('bearer')
+//         }
+//     })
+// }
 
 // Testes Carrinhos
 

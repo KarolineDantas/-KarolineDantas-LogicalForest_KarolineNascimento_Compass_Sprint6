@@ -82,15 +82,6 @@ describe('Casos de teste do fluxo 2', () => {
                 ValidaServerest.validarCadastroDeCarrinhoComSucesso(resposta)  
             })
         })
-        
-        // retorna _id indefinido
-        it('Deve buscar um produto pelo _id com sucesso', () => {
-            Serverest.buscarProdutoPorId()
-            cy.get('@idProduto').then(resposta => {
-                cy.contractValidation(resposta, 'get-produtos-id', 200) 
-                ValidaServerest.validarBuscaDeCarrinhoPorIdComSucesso(resposta)
-            })
-        })
 
         // retorna _id indefinido
         it('Deve buscar carrinho por _id com sucesso', () => {

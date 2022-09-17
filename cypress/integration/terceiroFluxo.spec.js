@@ -11,53 +11,20 @@ const URL_PRODUTOS  = '/produtos'
 const URL_CARRINHOS = '/carrinhos'
 
 
-// Terceiro fluxo de compras da API Serverest. Este fluxo possui novas funções de editar e excluir um usuário
+// Terceiro fluxo de compras da API Serverest
+// • Realizar login sem sucesso (erros);
+// • Realizar login com sucesso;
+// • Buscar usuário por ID – erro;
+// • Buscar usuário por ID – sucesso;
+// • Listar produtos cadastrados;
+// • Cadastrar carrinho com sucesso;
+// • Buscar carrinho por ID sem sucesso;
+// • Buscar carrinho por ID com sucesso;
+// • Cancelar compra com sucesso.
+
+
 
 describe('Casos de teste do fluxo 3', () => {
-
-    it('Cadastro de usuário com sucesso', () => {
-        Factory.gerarUsuario
-        Serverest.cadastrarUsuarioComSucesso().then( resposta => {
-            cy.contractValidation(resposta, 'post-usuarios', 201)
-            ValidaServerest.validarCadastroDeProdutoComSucesso(resposta)
-        })
-    })
-
-    it('Tentativa de cadastro com email já utilizado', () => {
-        Serverest.cadastrarUsuarioSemSucesso().then( resposta => {
-            cy.contractValidation(resposta, 'post-usuarios', 400)
-            ValidaServerest.validarCadastroUsuarioSemSucesso(resposta)
-        })
-    })
-
-    it('Tentativa de cadastro com email inválido', () => {
-        Serverest.cadastroUsuarioEmailInvalido().then( resposta => {
-            cy.contractValidation(resposta, 'post-usuarios', 400)
-            ValidaServerest.validarCadastroUsuarioEmailInvalido(resposta)
-        })
-    })
-
-    it('Tentativa de cadastro com senha inválida', () => {
-        Serverest.cadastroUsuarioSenhaInvalida().then( resposta => {
-            cy.contractValidation(resposta, 'post-usuarios', 400)
-            ValidaServerest.validarCadastroUsuarioSenhaInvalida(resposta)
-        })
-    })
-
-    it('Tentativa de cadastro com nome inválido', () => {
-        Serverest.cadastroUsuarioNomeInvalido().then( resposta => {
-            cy.contractValidation(resposta, 'post-usuarios', 400)
-            ValidaServerest.validarCadastroUsuarioNomeInvalido(resposta)
-        })
-    })
-    
-
-    it('Deve consultar os produtos da loja', () => {
-        Serverest.buscarProdutos().then( resposta => {
-            cy.contractValidation(resposta, 'get-produtos', 200)
-            ValidaServerest.validarBuscaDeProdutos(resposta)
-        })
-    })
 
     it('Logar sem sucesso', () => {
         Serverest.logarSemSucesso().then( resposta => {
@@ -66,7 +33,27 @@ describe('Casos de teste do fluxo 3', () => {
         })
     })
 
+    it('Tentativa de login sem email', () => {
+        Serverest.loginSemEmail().then( resposta => {
+            cy.contractValidation(resposta, 'post-login', 400)
+            ValidaServerest.validarLoginSemEmail(resposta)
+        })
+    })
 
+    it('Tentativa de login sem senha', () => {
+        Serverest.loginSemSenha().then( resposta => {
+            cy.contractValidation(resposta, 'post-login', 400)
+            ValidaServerest.validarLoginSemSenha(resposta)
+        })
+    })
+
+    it('Tentativa de login com e-mail inválido', () => {
+        Serverest.loginEmailInvalido().then( resposta => {
+            cy.contractValidation(resposta, 'post-login', 400)
+            ValidaServerest.validarLoginEmailInvalido(resposta)
+        })
+    })
+    
     context('Logar com sucesso', () => {
         beforeEach('Logar', () => {
             Serverest.buscarUsuarioParaLogin()
@@ -77,23 +64,60 @@ describe('Casos de teste do fluxo 3', () => {
             })
         })
 
-        it('Deve editar uma informação do usuário', () => {
-            
+        //problema  na url, não consegue pesquisar pelo id
+        it('Deve buscar um usuário por _id sem sucesso', () => {
+            Serverest.buscarUsuarioPorIdErro().then( resposta => {
+                cy.contractValidation(resposta, 'get-usuarios-id', 400)
+                ValidaServerest.validarBuscaDeUsuarioPorIdSemSucesso(resposta)
+            })
         })
 
-        it('Deve concluir compra com sucesso', () => {
-            Serverest.concluirCompra().then( resposta => {
+        //problema  na url, não consegue pesquisar pelo id
+        it('Deve buscar um usuário por _id com sucesso', () => {
+            Serverest.buscarUsuarioPorId().then( resposta => {
+                cy.contractValidation(resposta, 'get-usuarios-id', 200)
+                ValidaServerest.validarBuscaDeUsuarioPorIdSucesso(resposta)
+            }) 
+        })
+
+        it('Deve consultar os produtos da loja', () => {
+            Serverest.buscarProdutos().then( resposta => {
+                cy.contractValidation(resposta, 'get-produtos', 200)
+                ValidaServerest.validarBuscaDeProdutos(resposta)
+            })
+        })  
+
+        it('Deve cadastrar carrinho com sucesso', () => {
+            Serverest.cadastroDeCarrinhoComSucesso().then( resposta => {
+                cy.contractValidation(resposta, 'post-carrinhos', 201) 
+                ValidaServerest.validarCadastroDeCarrinhoComSucesso(resposta)  
+            })
+        })
+
+        // retorna _id indefinido
+        it('Deve buscar carrinho por _id sem sucesso', () => {
+            Serverest.buscarCarrinhoPorIdSemSucesso()
+            cy.get('@idCarrinho').then( resposta => {
+                cy.contractValidation(resposta, 'get-carrinhos-id', 400) 
+                ValidaServerest.validarBuscaDeCarrinhoPorIdComSucesso(resposta)
+            })
+        })
+
+        // retorna _id indefinido
+        it('Deve buscar carrinho por _id com sucesso', () => {
+            Serverest.buscarCarrinhoPorId()
+            cy.get('@idCarrinho').then( resposta => {
+                cy.contractValidation(resposta, 'get-carrinhos-id', 200) 
+                ValidaServerest.validarBuscaDeCarrinhoPorIdComSucesso(resposta)
+            })
+        })
+
+        //Mensagem de validação diferente da documentação
+        it('Deve cancelar compra com sucesso', () => {
+            Serverest.cancelarCompraComSucesso().then( resposta => {
                 cy.contractValidation(resposta, 'delete-carrinhos', 200) 
                 ValidaServerest.validarConclusaoDeComprasSucesso(resposta) 
             })
         })
     })
-
-    it('Tentativa de conclusão de compra', () => {
-        Serverest.conclusaoCompra().then( resposta => {
-            cy.contractValidation(resposta, 'delete-carrinhos', 401)
-            ValidaServerest.validarConclusaoDeComprasSemSucesso(resposta)     
-        })
-    })
-
 }) 

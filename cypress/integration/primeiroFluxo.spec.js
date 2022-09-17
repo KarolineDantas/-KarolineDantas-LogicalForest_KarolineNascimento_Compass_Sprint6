@@ -47,10 +47,13 @@ describe('Casos de teste do fluxo 1', () => {
             })
         })
 
-        //perguntar na mentoria como colocar validação
+        // retorna _id indefinido
         it('Deve buscar um produto pelo _id com sucesso', () => {
             Serverest.buscarProdutoPorId()
-            cy.get('@idProduto')
+            cy.get('@idProduto').then(resposta => {
+                cy.contractValidation(resposta, 'get-produtos-id', 200) 
+                ValidaServerest.validarBuscaDeProdutosPorId(resposta)
+            })
         })
 
         it('Deve cadastrar carrinho com sucesso', () => {
