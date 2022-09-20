@@ -18,6 +18,24 @@ export default class Serverest {
         Cypress.env('bearer', resposta.body.authorization.slice(7))
     }
 
+    static buscarUsuarioParaLogin() {
+        cy.request(URL_USUARIOS).then(res => {
+            cy.wrap({
+                email: res.body.usuarios[1].email,
+                password: res.body.usuarios[1].password
+            }).as('usuarioLogin')
+        })
+    }
+
+    static buscarSegundoUsuarioParaLogin() {
+        cy.request(URL_USUARIOS).then(res => {
+            cy.wrap({
+                email: res.body.usuarios[94].email,
+                password: res.body.usuarios[94].password
+            }).as('segundoUsuarioLogin')
+        })
+    }
+
     static logarSemSucesso() {
         let usuario = Factory.gerarLogin()
         return cy.request({
@@ -81,15 +99,6 @@ export default class Serverest {
             url: URL_USUARIOS,
             body: usuario,
             failOnStatusCode: false,
-        })
-    }
-
-    static buscarUsuarioParaLogin() {
-        cy.request(URL_USUARIOS).then(res => {
-            cy.wrap({
-                email: res.body.usuarios[3].email,
-                password: res.body.usuarios[3].password
-            }).as('usuarioLogin')
         })
     }
 
@@ -237,6 +246,22 @@ export default class Serverest {
         })
     }
 
+    static cadastroCarrinhoSemToken() {
+        return cy.request({
+            method: 'POST',
+            url: 'https://serverest.dev/carrinhos',
+            body: {
+                "produtos": [
+                    {
+                        "idProduto": "BeeJh5l",
+                        "quantidade": 1
+                    }
+                ]
+            },
+            failOnStatusCode: false,
+        })
+    }
+
 
     static concluirCompra() {
         return cy.request({
@@ -246,6 +271,14 @@ export default class Serverest {
             auth: {
                 bearer: Cypress.env('bearer'),
             }
+        })
+    }
+
+    static concluirCompraSemSucesso() {
+        return cy.request({
+            method: 'DELETE',
+            url: 'https://serverest.dev/carrinhos/concluir-compra',
+            failOnStatusCode: false,
         })
     }
 
@@ -284,19 +317,11 @@ export default class Serverest {
         })
     }
 
-    static cadastroDeCarrinhoSemToken() {
+    static cancelarCompraSemSucesso() {
         return cy.request({
-            method: 'POST',
-            url: 'https://serverest.dev/carrinhos',
+            method: 'DELETE',
+            url: 'https://serverest.dev/carrinhos/cancelar-compra',
             failOnStatusCode: false,
-            body: {
-                "produtos": [
-                    {
-                        "idProduto": "BeeJh5lz3k6kSIzA",
-                        "quantidade": 1
-                    }
-                ]
-            }
         })
     }
 
@@ -318,38 +343,6 @@ export default class Serverest {
             auth: {
                 bearer: Cypress.env('bearer'),
             }
-        })
-    }
-
-    static cadastroDeCarrinhoParaMesmoUsuario() {
-        return cy.request({
-            method: 'POST',
-            url: 'https://serverest.dev/carrinhos',
-            failOnStatusCode: false,
-            body: {
-                "produtos": [
-                    {
-                        "idProduto": "BeeJh5lz3k6kSIzA",
-                        "quantidade": 1,
-                    }
-                ]
-            },
-            auth: {
-                bearer: Cypress.env('bearer'),
-            }
-        })
-    }
-
-    static segundoBearer(resposta) {
-        Cypress.env('bearer', resposta.body.authorization.slice(8))
-    }
-
-    static segundoUsuarioParaLogin() {
-        cy.request(URL_USUARIOS).then(res => {
-            cy.wrap({
-                email: res.body.usuarios[1].email,
-                password: res.body.usuarios[1].password
-            }).as('segundoUsuarioLogin')
         })
     }
 }

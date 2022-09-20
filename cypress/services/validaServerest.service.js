@@ -82,17 +82,12 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.eq('Registro excluído com sucesso | Não foi encontrado carrinho para esse usuário')
     }
 
-    static validarCadastroDeCarrinhoSemToken(resposta) {
-        expect(resposta.body.message).to.be.eq('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais')
-    }
+   
 
     static validarCadastroDeCarrinhoParaMesmoUsuario(resposta) {
         expect(resposta.body.message).to.be.eq('Não é permitido ter mais de 1 carrinho')
     }
     
-    static validarCadastroDeCarrinhoComProdutoDuplicado(resposta) {
-        expect(resposta.body.message).to.be.eq('Não é permitido possuir produto duplicado')
-    }
     
 
 
@@ -138,4 +133,17 @@ export default class ValidaServerest {
     static validarBuscaDeCarrinhoPorIdSemSucesso(resposta) {
         expect(resposta.body.message).to.be.eq('Carrinho não encontrado')
     }
+
+    static validarCadastroCarrinhoProdutoInexistente(resposta) {
+        expect(resposta.body.message).to.be.eq('Produto não encontrado')
+    }
+
+    static validarCadastroDeCarrinhoSemToken(resposta) {
+        expect(resposta.body.message).to.be.eq('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais')
+    }
+
+    static validarCadastroDeCarrinhoComProdutoDuplicado(resposta) {
+        expect(resposta.body.message).to.be.eq('Não é permitido possuir produto duplicado')
+    }
+    
 }
