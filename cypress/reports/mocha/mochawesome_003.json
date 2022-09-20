@@ -5,9 +5,9 @@
     "passes": 3,
     "pending": 0,
     "failures": 8,
-    "start": "2022-09-17T23:39:49.049Z",
-    "end": "2022-09-17T23:39:54.352Z",
-    "duration": 5303,
+    "start": "2022-09-19T14:55:58.680Z",
+    "end": "2022-09-19T14:56:04.099Z",
+    "duration": 5419,
     "testsRegistered": 11,
     "passPercent": 27.27272727272727,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "00310772-7818-471a-8d75-4f95ca05e470",
+      "uuid": "0bf35f57-e8ab-449e-af8f-cb42584cbe5f",
       "title": "",
       "fullFile": "cypress/integration/terceiroFluxo.spec.js",
       "file": "cypress/integration/terceiroFluxo.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+          "uuid": "7fde1d2e-0331-4280-a3f3-28e9c3204f79",
           "title": "Terceiro fluxo para automação",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Logar sem sucesso",
               "fullTitle": "Terceiro fluxo para automação Logar sem sucesso",
               "timedOut": null,
-              "duration": 244,
+              "duration": 233,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,8 +47,8 @@
               "context": null,
               "code": "_serverest.default.logarSemSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginSemSucesso(resposta);\n});",
               "err": {},
-              "uuid": "71a0cb16-eeb1-4f48-bfe4-7c36251c9d42",
-              "parentUUID": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+              "uuid": "504c6f3e-7b7f-41db-9ffc-f1c6c068b6c8",
+              "parentUUID": "7fde1d2e-0331-4280-a3f3-28e9c3204f79",
               "isHook": false,
               "skipped": false
             },
@@ -56,7 +56,7 @@
               "title": "Tentativa de login sem email",
               "fullTitle": "Terceiro fluxo para automação Tentativa de login sem email",
               "timedOut": null,
-              "duration": 311,
+              "duration": 374,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -69,8 +69,8 @@
                 "estack": "AssertionError: expected undefined to equal 'email não pode ficar em branco'\n    at Function.validarLoginSemEmail (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:721:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:215:32)",
                 "diff": null
               },
-              "uuid": "a74b2e3e-1ca4-473f-adf1-14b4abb9e40f",
-              "parentUUID": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+              "uuid": "283d3e2a-8f1b-45f5-ac24-f410a1099163",
+              "parentUUID": "7fde1d2e-0331-4280-a3f3-28e9c3204f79",
               "isHook": false,
               "skipped": false
             },
@@ -78,7 +78,7 @@
               "title": "Tentativa de login sem senha",
               "fullTitle": "Terceiro fluxo para automação Tentativa de login sem senha",
               "timedOut": null,
-              "duration": 322,
+              "duration": 307,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -91,8 +91,8 @@
                 "estack": "AssertionError: expected undefined to equal 'email não pode ficar em branco'\n    at Function.validarLoginSemSenha (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:725:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:222:32)",
                 "diff": null
               },
-              "uuid": "ecb53cc5-8b32-4904-9fbe-a028b70d3750",
-              "parentUUID": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+              "uuid": "7e8b87a3-4c60-44f4-835e-5b21094e3292",
+              "parentUUID": "7fde1d2e-0331-4280-a3f3-28e9c3204f79",
               "isHook": false,
               "skipped": false
             },
@@ -100,7 +100,7 @@
               "title": "Tentativa de login com e-mail inválido",
               "fullTitle": "Terceiro fluxo para automação Tentativa de login com e-mail inválido",
               "timedOut": null,
-              "duration": 311,
+              "duration": 313,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -113,15 +113,15 @@
                 "estack": "AssertionError: expected undefined to equal 'Email deve ser um email válido'\n    at Function.validarLoginEmailInvalido (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:729:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:229:32)",
                 "diff": null
               },
-              "uuid": "0b364a94-644f-46c2-acff-89af518a29ae",
-              "parentUUID": "00bb64c3-91b2-4fd1-acc9-cc0d2201db83",
+              "uuid": "a61e0203-4494-4bc5-91c3-3c8d3e0c9821",
+              "parentUUID": "7fde1d2e-0331-4280-a3f3-28e9c3204f79",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [
             {
-              "uuid": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+              "uuid": "db659b54-198b-416b-9126-2d1b24b46a22",
               "title": "Logar com sucesso",
               "fullFile": "",
               "file": "",
@@ -132,7 +132,7 @@
                   "title": "Deve buscar um usuário por _id sem sucesso",
                   "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve buscar um usuário por _id sem sucesso",
                   "timedOut": null,
-                  "duration": 509,
+                  "duration": 532,
                   "state": "failed",
                   "speed": null,
                   "pass": false,
@@ -145,8 +145,8 @@
                     "estack": "TypeError: Cannot read properties of undefined (reading 'then')\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:244:50)",
                     "diff": null
                   },
-                  "uuid": "99af3134-90ff-4102-93ec-6b63e6f61370",
-                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "uuid": "ee7013ae-5eb6-4667-a219-2853acb196dd",
+                  "parentUUID": "db659b54-198b-416b-9126-2d1b24b46a22",
                   "isHook": false,
                   "skipped": false
                 },
@@ -154,7 +154,7 @@
                   "title": "Deve buscar um usuário por _id com sucesso",
                   "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve buscar um usuário por _id com sucesso",
                   "timedOut": null,
-                  "duration": 493,
+                  "duration": 536,
                   "state": "failed",
                   "speed": null,
                   "pass": false,
@@ -167,8 +167,8 @@
                     "estack": "TypeError: Cannot read properties of undefined (reading 'then')\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:252:46)",
                     "diff": null
                   },
-                  "uuid": "b6738e33-b6b5-431c-907c-bccec359eb36",
-                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "uuid": "529d79ed-3801-43e7-ab23-562eb54d2486",
+                  "parentUUID": "db659b54-198b-416b-9126-2d1b24b46a22",
                   "isHook": false,
                   "skipped": false
                 },
@@ -176,7 +176,7 @@
                   "title": "Deve consultar os produtos da loja",
                   "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve consultar os produtos da loja",
                   "timedOut": null,
-                  "duration": 518,
+                  "duration": 507,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -185,8 +185,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarProdutos().then(resposta => {\n  cy.contractValidation(resposta, 'get-produtos', 200);\n  _validaServerest.default.validarBuscaDeProdutos(resposta);\n});",
                   "err": {},
-                  "uuid": "f1336c3e-c64b-463f-aac8-d71311f0498b",
-                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "uuid": "bfe79268-702a-40ac-8308-e2f7cb206f72",
+                  "parentUUID": "db659b54-198b-416b-9126-2d1b24b46a22",
                   "isHook": false,
                   "skipped": false
                 },
@@ -194,7 +194,7 @@
                   "title": "Deve cadastrar carrinho com sucesso",
                   "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve cadastrar carrinho com sucesso",
                   "timedOut": null,
-                  "duration": 499,
+                  "duration": 506,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -203,8 +203,8 @@
                   "context": null,
                   "code": "_serverest.default.cadastroDeCarrinhoComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 201);\n  _validaServerest.default.validarCadastroDeCarrinhoComSucesso(resposta);\n});",
                   "err": {},
-                  "uuid": "7a07b63a-cc71-4f32-bbf2-3fa852f6a14f",
-                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "uuid": "584b81f1-4f4d-4860-9b4d-54f54a31a72a",
+                  "parentUUID": "db659b54-198b-416b-9126-2d1b24b46a22",
                   "isHook": false,
                   "skipped": false
                 },
@@ -212,7 +212,7 @@
                   "title": "Deve buscar carrinho por _id sem sucesso",
                   "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve buscar carrinho por _id sem sucesso",
                   "timedOut": null,
-                  "duration": 636,
+                  "duration": 706,
                   "state": "failed",
                   "speed": null,
                   "pass": false,
@@ -225,8 +225,8 @@
                     "estack": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\support\\index.js:227:13)",
                     "diff": null
                   },
-                  "uuid": "07e69fb7-06ab-418e-95bc-a6cef6028307",
-                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "uuid": "a34ab8b8-dcb7-497a-9e24-c804957ef21a",
+                  "parentUUID": "db659b54-198b-416b-9126-2d1b24b46a22",
                   "isHook": false,
                   "skipped": false
                 },
@@ -234,7 +234,7 @@
                   "title": "Deve buscar carrinho por _id com sucesso",
                   "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve buscar carrinho por _id com sucesso",
                   "timedOut": null,
-                  "duration": 658,
+                  "duration": 654,
                   "state": "failed",
                   "speed": null,
                   "pass": false,
@@ -247,8 +247,8 @@
                     "estack": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\support\\index.js:227:13)",
                     "diff": null
                   },
-                  "uuid": "a1e837d0-e3cd-46a9-887a-acc8bece8e7a",
-                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "uuid": "55e17aa1-063c-4da4-8e8a-1562b496a14a",
+                  "parentUUID": "db659b54-198b-416b-9126-2d1b24b46a22",
                   "isHook": false,
                   "skipped": false
                 },
@@ -256,7 +256,7 @@
                   "title": "Deve cancelar compra com sucesso",
                   "fullTitle": "Terceiro fluxo para automação Logar com sucesso Deve cancelar compra com sucesso",
                   "timedOut": null,
-                  "duration": 709,
+                  "duration": 660,
                   "state": "failed",
                   "speed": null,
                   "pass": false,
@@ -269,43 +269,43 @@
                     "estack": "AssertionError: expected 'Registro excluído com sucesso. Estoque dos produtos reabastecido' to equal 'Registro excluído com sucesso'\n    at Function.validarConclusaoDeComprasSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:693:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\terceiroFluxo.spec.js:297:34)",
                     "diff": "- 'Registro excluído com sucesso. Estoque dos produtos reabastecido'\n+ 'Registro excluído com sucesso'\n"
                   },
-                  "uuid": "72dd3a52-a905-4c2d-acea-94586eb1fdd2",
-                  "parentUUID": "962cc750-8265-4947-9fc1-f7d61b42b7d9",
+                  "uuid": "e7b0d33b-54e0-4ec3-b1c4-119f1fb5f157",
+                  "parentUUID": "db659b54-198b-416b-9126-2d1b24b46a22",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "f1336c3e-c64b-463f-aac8-d71311f0498b",
-                "7a07b63a-cc71-4f32-bbf2-3fa852f6a14f"
+                "bfe79268-702a-40ac-8308-e2f7cb206f72",
+                "584b81f1-4f4d-4860-9b4d-54f54a31a72a"
               ],
               "failures": [
-                "99af3134-90ff-4102-93ec-6b63e6f61370",
-                "b6738e33-b6b5-431c-907c-bccec359eb36",
-                "07e69fb7-06ab-418e-95bc-a6cef6028307",
-                "a1e837d0-e3cd-46a9-887a-acc8bece8e7a",
-                "72dd3a52-a905-4c2d-acea-94586eb1fdd2"
+                "ee7013ae-5eb6-4667-a219-2853acb196dd",
+                "529d79ed-3801-43e7-ab23-562eb54d2486",
+                "a34ab8b8-dcb7-497a-9e24-c804957ef21a",
+                "55e17aa1-063c-4da4-8e8a-1562b496a14a",
+                "e7b0d33b-54e0-4ec3-b1c4-119f1fb5f157"
               ],
               "pending": [],
               "skipped": [],
-              "duration": 4022,
+              "duration": 4101,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             }
           ],
           "passes": [
-            "71a0cb16-eeb1-4f48-bfe4-7c36251c9d42"
+            "504c6f3e-7b7f-41db-9ffc-f1c6c068b6c8"
           ],
           "failures": [
-            "a74b2e3e-1ca4-473f-adf1-14b4abb9e40f",
-            "ecb53cc5-8b32-4904-9fbe-a028b70d3750",
-            "0b364a94-644f-46c2-acff-89af518a29ae"
+            "283d3e2a-8f1b-45f5-ac24-f410a1099163",
+            "7e8b87a3-4c60-44f4-835e-5b21094e3292",
+            "a61e0203-4494-4bc5-91c3-3c8d3e0c9821"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 1188,
+          "duration": 1227,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

@@ -29,6 +29,30 @@ export default class Serverest {
         Cypress.env('bearer', resposta.body.authorization.slice(7))
     }
 
+    static cadastrarProdutoComSucesso() {
+        let produto = Factory.gerarProduto()
+
+        return cy.request({
+            method: 'POST',
+            url: URL_PRODUTOS,
+            body: produto,
+            failOnStatusCode: true,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    static deletarProdutoCadastrado() {
+        return cy.request({
+            method: 'DELETE',
+            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
@@ -42,26 +66,18 @@ export default class Serverest {
         return cy.rest('GET', URL_PRODUTOS)
     }
 
-    static buscarProdutoPorId() {
-        cy.request(URL_PRODUTOS).then(res => {
-            cy.wrap({
-                _id: res.body._id
-            }).as('idProduto')
-        })
-    }
-
-    static buscarProdutoPorIdSemSucesso() {
-        cy.request(URL_PRODUTOS).then(res => {
-            cy.wrap({
-                _id: '_id'
-            }).as('idProduto')
-        })
-    }
-
-    static buscarProdutoPorId2() {
+    static buscarProdutoCadastradoPeloId() {
         return cy.request({
             method: 'GET',
-            url: 'URL_PRODUTOS' + Cypress.env('idBuscaDeProduto'),
+            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+        })
+    }
+
+    static buscarProdutoPeloIdSemSucesso() {
+        return cy.request({
+            method: 'GET',
+            url: 'https://serverest.dev/produtos/BeeJh5lz3k6kSIz',
+            failOnStatusCode: false,
         })
     }
 

@@ -2,14 +2,14 @@
   "stats": {
     "suites": 2,
     "tests": 6,
-    "passes": 3,
+    "passes": 4,
     "pending": 0,
-    "failures": 3,
-    "start": "2022-09-17T23:39:23.998Z",
-    "end": "2022-09-17T23:39:27.531Z",
-    "duration": 3533,
+    "failures": 2,
+    "start": "2022-09-19T14:55:33.515Z",
+    "end": "2022-09-19T14:55:36.903Z",
+    "duration": 3388,
     "testsRegistered": 6,
-    "passPercent": 50,
+    "passPercent": 66.66666666666666,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a0f1e627-9c8e-483e-8c03-99f808a789ae",
+      "uuid": "0e5c895b-0fe7-47d2-b8c9-c0681ed97619",
       "title": "",
       "fullFile": "cypress/integration/primeiroFluxo.spec.js",
       "file": "cypress/integration/primeiroFluxo.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "622c87e9-f585-4c59-a8b5-9d67d2a4b2fc",
+          "uuid": "4e11f101-73a3-4017-b7af-cdce09d5866a",
           "title": "Primeiro fluxo para automação",
           "fullFile": "",
           "file": "",
@@ -38,7 +38,7 @@
               "title": "Cadastro de usuário com sucesso",
               "fullTitle": "Primeiro fluxo para automação Cadastro de usuário com sucesso",
               "timedOut": null,
-              "duration": 417,
+              "duration": 407,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,15 +47,15 @@
               "context": null,
               "code": "_factory.default.gerarUsuario;\n_serverest.default.cadastrarUsuarioComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-usuarios', 201);\n  _validaServerest.default.validarCadastroDeProdutoComSucesso(resposta);\n});",
               "err": {},
-              "uuid": "f28d43bc-f987-455f-be0d-a75400ec604a",
-              "parentUUID": "622c87e9-f585-4c59-a8b5-9d67d2a4b2fc",
+              "uuid": "aa00d2be-f847-4109-babf-bc9947c54bff",
+              "parentUUID": "4e11f101-73a3-4017-b7af-cdce09d5866a",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [
             {
-              "uuid": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+              "uuid": "73b0a815-4b41-43fa-9967-3e42bdcd66d8",
               "title": "Logar com sucesso",
               "fullFile": "",
               "file": "",
@@ -66,7 +66,7 @@
                   "title": "Deve consultar os produtos da loja",
                   "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve consultar os produtos da loja",
                   "timedOut": null,
-                  "duration": 524,
+                  "duration": 525,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -75,8 +75,8 @@
                   "context": null,
                   "code": "_serverest.default.buscarProdutos().then(resposta => {\n  cy.contractValidation(resposta, 'get-produtos', 200);\n  _validaServerest.default.validarBuscaDeProdutos(resposta);\n});",
                   "err": {},
-                  "uuid": "e0069b12-5e8d-471f-a813-95f1efdedafc",
-                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+                  "uuid": "eff0400c-be1b-4906-ae2d-adcdf7fad57f",
+                  "parentUUID": "73b0a815-4b41-43fa-9967-3e42bdcd66d8",
                   "isHook": false,
                   "skipped": false
                 },
@@ -84,7 +84,7 @@
                   "title": "Deve buscar um produto pelo _id sem sucesso",
                   "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve buscar um produto pelo _id sem sucesso",
                   "timedOut": null,
-                  "duration": 682,
+                  "duration": 671,
                   "state": "failed",
                   "speed": null,
                   "pass": false,
@@ -97,8 +97,8 @@
                     "estack": "ReferenceError: _id is not defined\n    at Function.validarBuscaDeProdutosPorIdSemSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:645:52)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:234:34)",
                     "diff": null
                   },
-                  "uuid": "72f48b29-9823-4a21-bd96-d4904ff64355",
-                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+                  "uuid": "dce11452-458d-4074-acf8-c32b47432983",
+                  "parentUUID": "73b0a815-4b41-43fa-9967-3e42bdcd66d8",
                   "isHook": false,
                   "skipped": false
                 },
@@ -106,7 +106,7 @@
                   "title": "Deve buscar um produto pelo _id com sucesso",
                   "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve buscar um produto pelo _id com sucesso",
                   "timedOut": null,
-                  "duration": 689,
+                  "duration": 669,
                   "state": "failed",
                   "speed": null,
                   "pass": false,
@@ -119,8 +119,8 @@
                     "estack": "Error: Erros encontrados na validação de contrato, por favor verifique: \n must be object, but receive undefined\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\support\\index.js:227:13)",
                     "diff": null
                   },
-                  "uuid": "58a428cb-9d7e-4bd0-8162-c6f91cbf98ee",
-                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+                  "uuid": "5608c21d-78e8-4b3e-b72f-1e304d8ee401",
+                  "parentUUID": "73b0a815-4b41-43fa-9967-3e42bdcd66d8",
                   "isHook": false,
                   "skipped": false
                 },
@@ -128,21 +128,17 @@
                   "title": "Deve cadastrar carrinho com sucesso",
                   "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve cadastrar carrinho com sucesso",
                   "timedOut": null,
-                  "duration": 655,
-                  "state": "failed",
-                  "speed": null,
-                  "pass": false,
-                  "fail": true,
+                  "duration": 535,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
                   "pending": false,
                   "context": null,
                   "code": "_serverest.default.cadastroDeCarrinhoComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 201);\n  _validaServerest.default.validarCadastroDeCarrinhoComSucesso(resposta);\n});",
-                  "err": {
-                    "message": "AssertionError: expected 'Não é permitido ter mais de 1 carrinho' to equal 'Cadastro realizado com sucesso'",
-                    "estack": "AssertionError: expected 'Não é permitido ter mais de 1 carrinho' to equal 'Cadastro realizado com sucesso'\n    at Function.validarCadastroDeCarrinhoComSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:650:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\primeiroFluxo.spec.js:251:34)",
-                    "diff": "- 'Não é permitido ter mais de 1 carrinho'\n+ 'Cadastro realizado com sucesso'\n"
-                  },
-                  "uuid": "5702047b-4e16-4949-b06f-d0fe2576a8d3",
-                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+                  "err": {},
+                  "uuid": "162a23ef-4e27-4e60-a23c-27b10a172086",
+                  "parentUUID": "73b0a815-4b41-43fa-9967-3e42bdcd66d8",
                   "isHook": false,
                   "skipped": false
                 },
@@ -150,7 +146,7 @@
                   "title": "Deve concluir compra com sucesso",
                   "fullTitle": "Primeiro fluxo para automação Logar com sucesso Deve concluir compra com sucesso",
                   "timedOut": null,
-                  "duration": 508,
+                  "duration": 529,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -159,37 +155,37 @@
                   "context": null,
                   "code": "_serverest.default.concluirCompra().then(resposta => {\n  cy.contractValidation(resposta, 'delete-carrinhos', 200);\n  _validaServerest.default.validarConclusaoDeComprasSucesso(resposta);\n});",
                   "err": {},
-                  "uuid": "7d9cc2d7-f416-48b5-9de2-0823e062cfa9",
-                  "parentUUID": "8428a7b1-d14a-4e3c-a0b3-6276285868fa",
+                  "uuid": "70076862-3d67-4e5e-8c0f-ce1174587891",
+                  "parentUUID": "73b0a815-4b41-43fa-9967-3e42bdcd66d8",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "e0069b12-5e8d-471f-a813-95f1efdedafc",
-                "7d9cc2d7-f416-48b5-9de2-0823e062cfa9"
+                "eff0400c-be1b-4906-ae2d-adcdf7fad57f",
+                "162a23ef-4e27-4e60-a23c-27b10a172086",
+                "70076862-3d67-4e5e-8c0f-ce1174587891"
               ],
               "failures": [
-                "72f48b29-9823-4a21-bd96-d4904ff64355",
-                "58a428cb-9d7e-4bd0-8162-c6f91cbf98ee",
-                "5702047b-4e16-4949-b06f-d0fe2576a8d3"
+                "dce11452-458d-4074-acf8-c32b47432983",
+                "5608c21d-78e8-4b3e-b72f-1e304d8ee401"
               ],
               "pending": [],
               "skipped": [],
-              "duration": 3058,
+              "duration": 2929,
               "root": false,
               "rootEmpty": false,
               "_timeout": 2000
             }
           ],
           "passes": [
-            "f28d43bc-f987-455f-be0d-a75400ec604a"
+            "aa00d2be-f847-4109-babf-bc9947c54bff"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 417,
+          "duration": 407,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

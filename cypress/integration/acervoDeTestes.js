@@ -110,6 +110,49 @@ it('Deve buscar todos os produtos cadastrados', () => {
     })
 })
 
+it('Deve deletar o produto cadastrado', () => {
+    Serverest.deletarProdutoCadastrado().then( res => {
+        cy.log(res)
+    })
+})
+
+// static validarBuscaDeProdutosPorId(resposta) {
+//     Cypress.env('idBuscaDeProduto', resposta.body)
+// }
+
+// static validarBuscaDeProdutosPorIdSemSucesso(resposta) {
+//     Cypress.env('idBuscaDeProduto', resposta.body, _id)
+//     expect(resposta.body.message).to.be.eq('Produto não encontrado')   
+// }
+
+
+// static buscarProdutoPorId() {
+//     cy.request(URL_PRODUTOS).then(res => {
+//         cy.wrap({
+//             nome: res.body.produtos[0].nome,
+//             preco: res.body.produtos[0].preco,
+//             descricao: res.body.produtos[0].descricao,
+//             quantidade: res.body.produtos[0].quantidade,
+//             _id: res.body.produtos[0]._id,
+//         }).as('idProduto')
+//     })
+// }
+
+// static buscarProdutoPorIdSemSucesso() {
+//     cy.request(URL_PRODUTOS).then(res => {
+//         cy.wrap({
+//             _id: res.body.usuarios[0]._id,
+//         }).as('idProduto')
+//     })
+// }
+
+// static buscarProdutoPorId2() {
+//     return cy.request({
+//         method: 'GET',
+//         url: 'URL_PRODUTOS' + Cypress.env('idBuscaDeProduto'),
+//     })
+// }
+
 // static cadastrarProdutoComSucesso() {
 //     return cy.request({
 //         method: 'POST',

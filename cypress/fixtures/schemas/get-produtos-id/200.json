@@ -7,5 +7,22 @@
         "quantidade",
         "_id"
     ],
-    "additionalProperties": true
+    "additionalProperties": true,
+    "properties": {
+        "nome": {
+            "type": "string"
+        },
+        "preco": {
+            "type": "integer"
+        },
+        "descricao": {
+            "type": "string"
+        },
+        "quantidade": {
+            "type": "integer"
+        },
+        "_id": {
+            "type": "string"
+        }
+    }
 }

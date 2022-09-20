@@ -25,15 +25,6 @@ export default class ValidaServerest {
         expect(resposta.body.produtos[0]).to.haveOwnProperty('descricao')
     }
 
-    static validarBuscaDeProdutosPorId(resposta) {
-        Cypress.env('idBuscaDeProduto', resposta.body)
-    }
-
-    static validarBuscaDeProdutosPorIdSemSucesso(resposta) {
-        Cypress.env('idBuscaDeProduto', resposta.body, _id)
-        expect(resposta.body.message).to.be.eq('Produto não encontrado')   
-    }
-
     static validarCadastroDeCarrinhoComSucesso(resposta) {
         expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')   
     }
@@ -73,7 +64,7 @@ export default class ValidaServerest {
     }
 
     static validarLoginSemSenha(resposta) {
-        expect(resposta.body.message).to.be.eq('email não pode ficar em branco')
+        expect(resposta.body.message).to.be.eq('Senha inválida, digite novamente')
     }
 
     static validarLoginEmailInvalido(resposta) {
@@ -122,6 +113,17 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.a('string')
         expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')
         expect(resposta.body).to.haveOwnProperty('_id')
+        Cypress.env('idProdutoCadastrado', resposta.body._id)
     }
+
+    static validarBuscaDeProdutoPeloId(resposta) {
+        Cypress.env('idProdutoCadastrado', resposta.body._id)
+    }
+
+    static validarBuscaDeProdutoPeloIdSemSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Produto não encontrado')
+    }
+
+
 
 }
