@@ -25,9 +25,7 @@ export default class ValidaServerest {
         expect(resposta.body.produtos[0]).to.haveOwnProperty('descricao')
     }
 
-    static validarCadastroDeCarrinhoComSucesso(resposta) {
-        expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')   
-    }
+    
 
     static validarConclusaoDeComprasSucesso(resposta) {
         expect(resposta.body.message).to.be.eq('Registro excluído com sucesso')
@@ -50,9 +48,7 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.eq('Nome inválido, tente novamente')
     }
 
-    static validarBuscaDeCarrinhoPorIdComSucesso(resposta) {
-        expect(resposta).to.be.a('object')
-    }
+   
 
     static validarLoginSemSucesso(resposta) {
         expect(resposta.body.message).to.be.eq('Email e/ou senha inválidos')
@@ -76,10 +72,7 @@ export default class ValidaServerest {
         expect(resposta.body).to.haveOwnProperty('_id')
     }
 
-    static validarBuscaDeUsuarioPorIdSucesso(resposta) {
-        expect(resposta.status).to.be.equal(200)
-        expect(resposta.body).to.haveOwnProperty('_id')
-    }
+   
 
     static validarConclusaoDeComprasSemSucesso(resposta) {
         expect(resposta.body.message).to.be.eq('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais')
@@ -124,6 +117,25 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.eq('Produto não encontrado')
     }
 
+    static validarBuscaDeUsuarioPeloIdSemSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Usuário não encontrado')
+    }
 
+    static validarBuscaDeUsuarioPorIdSucesso(resposta) {
+        expect(resposta.body).to.haveOwnProperty('_id')
+        Cypress.env('idUsuario', resposta.body._id)
+    }
 
+    static validarCadastroDeCarrinhoComSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')
+        Cypress.env('idCarrinho', resposta.body._id)
+    }
+
+    static validarBuscaDeCarrinhoPorIdComSucesso(resposta) {
+        Cypress.env('idCarrinho', resposta.body._id)
+    }
+
+    static validarBuscaDeCarrinhoPorIdSemSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Carrinho não encontrado')
+    }
 }

@@ -14,28 +14,28 @@ const URL_CARRINHOS = '/carrinhos'
 describe('Testes para a rota usuários', () => {
 
     it('Tentativa de cadastro com email já utilizado', () => {
-        Serverest.cadastrarUsuarioSemSucesso().then( resposta => {
+        Serverest.cadastrarUsuarioSemSucesso().then(resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 400)
             ValidaServerest.validarCadastroUsuarioSemSucesso(resposta)
         })
     })
-    
+
     it('Tentativa de cadastro com email inválido', () => {
-        Serverest.cadastroUsuarioEmailInvalido().then( resposta => {
+        Serverest.cadastroUsuarioEmailInvalido().then(resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 400)
             ValidaServerest.validarCadastroUsuarioEmailInvalido(resposta)
         })
     })
-    
+
     it('Tentativa de cadastro com senha inválida', () => {
-        Serverest.cadastroUsuarioSenhaInvalida().then( resposta => {
+        Serverest.cadastroUsuarioSenhaInvalida().then(resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 400)
             ValidaServerest.validarCadastroUsuarioSenhaInvalida(resposta)
         })
     })
-    
+
     it('Tentativa de cadastro com nome inválido', () => {
-        Serverest.cadastroUsuarioNomeInvalido().then( resposta => {
+        Serverest.cadastroUsuarioNomeInvalido().then(resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 400)
             ValidaServerest.validarCadastroUsuarioNomeInvalido(resposta)
         })
@@ -43,9 +43,23 @@ describe('Testes para a rota usuários', () => {
 
     it('Cadastro de usuário com sucesso', () => {
         Factory.gerarUsuario
-        Serverest.cadastrarUsuarioComSucesso().then( resposta => {
+        Serverest.cadastrarUsuarioComSucesso().then(resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 201)
             ValidaServerest.validarCadastroDeProdutoComSucesso(resposta)
+        })
+    })
+
+    it.only('Deve buscar um usuário pelo _id sem sucessso', () => {
+        Serverest.buscarUsuarioPorId().then(resposta => {
+            cy.contractValidation(resposta, 'get-usuarios-id', 400)
+            ValidaServerest.validarBuscaDeUsuarioPeloIdSemSucesso(resposta)
+        })
+    })
+
+    it.only('Deve buscar um usuário pelo _id com sucessso', () => {
+        Serverest.buscarUsuarioPorId().then( resposta => {
+            cy.contractValidation(resposta, 'get-usuarios-id', 200) 
+            ValidaServerest.validarBuscaDeUsuarioPorIdSucesso(resposta)
         })
     })
 })
