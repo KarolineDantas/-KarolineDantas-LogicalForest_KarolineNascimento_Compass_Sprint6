@@ -20,6 +20,15 @@ export default class Factory {
         }
     }
 
+    static gerarUsuarioNaoAdm(){
+        return {
+            "nome": faker.name.firstName(),
+            "email": faker.internet.email(),
+            "password": faker.internet.password(),
+            "administrador": 'false',
+        }
+    }
+
     static gerarLogin(){
         return {
             "email": faker.internet.email(),

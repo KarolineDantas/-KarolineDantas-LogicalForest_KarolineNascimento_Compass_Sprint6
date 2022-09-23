@@ -27,20 +27,27 @@ describe('Testes para a rota usuários', () => {
         })
     })
 
-    it('Tentativa de cadastro com senha inválida', () => {
+    it('Tentativa de cadastro com senha de 1 caractere', () => {
         Serverest.cadastroUsuarioSenhaInvalida().then(resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 400)
             ValidaServerest.validarCadastroUsuarioSenhaInvalida(resposta)
         })
     })
 
-    it('Tentativa de cadastro com nome inválido', () => {
+    it('Tentativa de cadastro sem nome', () => {
         Serverest.cadastroUsuarioNomeInvalido().then(resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 400)
             ValidaServerest.validarCadastroUsuarioNomeInvalido(resposta)
         })
     })
 
+    it('Deve buscar todos os usuários cadastrados na Serverest', () => {
+        Serverest.buscarUsuarios().then(resposta => {
+            cy.contractValidation(resposta, 'get-usuarios', 200)
+            ValidaServerest.validarBuscaDeUsuarios(resposta)
+        })
+    })
+    
     it('Cadastro de usuário com sucesso', () => {
         Factory.gerarUsuario
         Serverest.cadastrarUsuarioComSucesso().then(resposta => {
@@ -49,14 +56,14 @@ describe('Testes para a rota usuários', () => {
         })
     })
 
-    it.only('Deve buscar um usuário pelo _id sem sucessso', () => {
+    it('Deve buscar um usuário pelo _id sem sucessso', () => {
         Serverest.buscarUsuarioPorId().then(resposta => {
             cy.contractValidation(resposta, 'get-usuarios-id', 400)
             ValidaServerest.validarBuscaDeUsuarioPeloIdSemSucesso(resposta)
         })
     })
 
-    it.only('Deve buscar um usuário pelo _id com sucessso', () => {
+    it('Deve buscar um usuário pelo _id com sucessso', () => {
         Serverest.buscarUsuarioPorId().then( resposta => {
             cy.contractValidation(resposta, 'get-usuarios-id', 200) 
             ValidaServerest.validarBuscaDeUsuarioPorIdSucesso(resposta)

@@ -37,9 +37,30 @@ describe('Testes para a rota produtos', () => {
             })
         })
 
+        it('Deve tentar cadastrar um produto sem estar logado', () => {
+            Serverest.cadastroProdutoSemLogin().then(resposta => {
+                cy.contractValidation(resposta, 'post-produtos', 401)
+                ValidaServerest.validarCadastroProdutoSemLogin(resposta)
+            })
+        })
+
+        it('Deve tentar cadastrar um produto já existente', () => {
+            Serverest.cadastroProdutoDuplicado().then(resposta => {
+                cy.contractValidation(resposta, 'post-produtos', 400)
+                ValidaServerest.validarProdutoDuplicado(resposta)
+            })
+        }) 
+
         it('Deve postar um novo produto com sucesso', () => {
-            Serverest.cadastrarProdutoComSucesso().then(res => {
-                ValidaServerest.validarCadastroDeProdutoComSucesso(res)
+            Serverest.cadastrarProdutoComSucesso().then(resposta => {
+                cy.contractValidation(resposta, 'post-produtos', 200)
+                ValidaServerest.validarCadastroDeProdutoComSucesso(resposta)
+            })
+        })
+
+        it.only('Deve cadastrar um produto sem nome', () => {
+            Serverest.cadastroSemNome().then(resposta => {
+                ValidaServerest.validarProdutoSemNome(resposta)
             })
         })
 
@@ -56,5 +77,23 @@ describe('Testes para a rota produtos', () => {
                 ValidaServerest.validarBuscaDeProdutoPeloId(resposta)
             })
         }) 
+    })
+
+    context('Logar com sucesso', () => {
+        beforeEach('Logar', () => {
+            Serverest.buscarSegundoUsuarioParaLogin()
+            cy.get('@segundoUsuarioLogin').then( usuario => {
+                Serverest.logar(usuario).then(res => {
+                    Serverest.salvarBearer(res)
+                })
+            })
+        })
+
+        it('Deve tentar cadastrar um produto sem ser administrador', () => {
+            Serverest.cadastroProdutoSemSerAdmin().then(resposta => {
+                cy.contractValidation(resposta, 'post-produtos', 403)
+                ValidaServerest.cadastroDeProdutoSemSerAdmin(resposta)
+            })
+        })
     })
 })

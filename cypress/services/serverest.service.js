@@ -30,8 +30,8 @@ export default class Serverest {
     static buscarSegundoUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
-                email: res.body.usuarios[94].email,
-                password: res.body.usuarios[94].password
+                email: res.body.usuarios[3].email,
+                password: res.body.usuarios[3].password
             }).as('segundoUsuarioLogin')
         })
     }
@@ -179,6 +179,64 @@ export default class Serverest {
             url: URL_PRODUTOS,
             body: produto,
             failOnStatusCode: true,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    static cadastroProdutoSemLogin() {
+        return cy.request({
+            method: 'POST',
+            url: URL_PRODUTOS,
+            failOnStatusCode: false,
+        })
+    }
+
+    static cadastroProdutoDuplicado() {
+
+        return cy.request({
+            method: 'POST',
+            url: URL_PRODUTOS,
+            body: {
+                "nome": "Logitech MX Vertical",
+                "preco": 470,
+                "descricao": "Mouse",
+                "quantidade": 381
+              },
+            failOnStatusCode: false,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    static cadastroProdutoSemSerAdmin() {
+        let produto = Factory.gerarProduto()
+
+        return cy.request({
+            method: 'POST',
+            url: URL_PRODUTOS,
+            body: produto,
+            failOnStatusCode: false,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    static cadastroSemNome() {
+
+        return cy.request({
+            method: 'POST',
+            url: URL_PRODUTOS,
+            body: {
+                "nome": "..",
+                "preco": -1,
+                "descricao": "Mouse",
+                "quantidade": 381
+              },
+            failOnStatusCode: false,
             auth: {
                 bearer: Cypress.env('bearer')
             }

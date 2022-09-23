@@ -104,6 +104,21 @@ export default class ValidaServerest {
         Cypress.env('idProdutoCadastrado', resposta.body._id)
     }
 
+    static validarCadastroProdutoSemLogin(resposta) {
+        expect(resposta.body.message).to.be.eq('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais')
+    }
+
+    static validarProdutoDuplicado(resposta) {
+        expect(resposta.body.message).to.be.eq('Já existe produto com esse nome')
+    }
+
+    static validarProdutoSemNome(resposta) {
+        expect(resposta.body.message).to.be.eq('Já existe produto com esse nome')
+    }
+
+    static cadastroDeProdutoSemSerAdmin(resposta) {
+        expect(resposta.body.message).to.be.eq('Rota exclusiva para administradores')
+    }
     static validarBuscaDeProdutoPeloId(resposta) {
         Cypress.env('idProdutoCadastrado', resposta.body._id)
     }
