@@ -27,11 +27,12 @@ export default class Serverest {
         })
     }
 
+    // verificar se o usuário selecionado possui adm false
     static buscarSegundoUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
-                email: res.body.usuarios[3].email,
-                password: res.body.usuarios[3].password
+                email: res.body.usuarios[4].email,
+                password: res.body.usuarios[4].password
             }).as('segundoUsuarioLogin')
         })
     }
@@ -225,14 +226,16 @@ export default class Serverest {
         })
     }
 
+
+    // Verificar se já existem um produto com o mesmo nome 
     static cadastroSemNome() {
 
         return cy.request({
             method: 'POST',
             url: URL_PRODUTOS,
             body: {
-                "nome": "..",
-                "preco": -1,
+                "nome": " ",
+                "preco": 3,
                 "descricao": "Mouse",
                 "quantidade": 381
               },
@@ -277,6 +280,39 @@ export default class Serverest {
         return cy.request({
             method: 'GET',
             url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+        })
+    }
+
+
+     // Verificar se já existem um produto com o mesmo nome 
+    static editarProdutoComSucesso() {
+        let produto = Factory.gerarProduto()
+
+        return cy.request({
+            method: 'PUT',
+            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+            body: produto,
+            failOnStatusCode: false,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    // Ao colocar a URL_PRODUTOS, o código abaixo gera erro 405 (ver mapa mental). 
+    // Dessa forma foi necessário colocar a versão extensa da URL.
+
+    static editarProdutoSemSerAdmin() {
+        let produto = Factory.gerarProduto()
+
+        return cy.request({
+            method: 'PUT',
+            url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+            body: produto,
+            failOnStatusCode: false,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
         })
     }
 

@@ -51,14 +51,21 @@ describe('Testes para a rota produtos', () => {
             })
         }) 
 
-        it('Deve postar um novo produto com sucesso', () => {
+        it('Deve cadastrar um novo produto com sucesso', () => {
             Serverest.cadastrarProdutoComSucesso().then(resposta => {
                 cy.contractValidation(resposta, 'post-produtos', 200)
                 ValidaServerest.validarCadastroDeProdutoComSucesso(resposta)
             })
         })
 
-        it.only('Deve cadastrar um produto sem nome', () => {
+        it('Deve editar um produto com sucesso', () => {
+            Serverest.editarProdutoComSucesso().then(resposta => {
+                cy.contractValidation(resposta, 'put-produtos-id', 200) 
+                ValidaServerest.validarEdicaoProdutoSucesso(resposta)
+            })
+        })
+
+        it('Deve cadastrar um produto sem nome', () => {
             Serverest.cadastroSemNome().then(resposta => {
                 ValidaServerest.validarProdutoSemNome(resposta)
             })
@@ -76,7 +83,7 @@ describe('Testes para a rota produtos', () => {
                 cy.contractValidation(resposta, 'get-produtos-id', 200) 
                 ValidaServerest.validarBuscaDeProdutoPeloId(resposta)
             })
-        }) 
+        })
     })
 
     context('Logar com sucesso', () => {
@@ -93,6 +100,13 @@ describe('Testes para a rota produtos', () => {
             Serverest.cadastroProdutoSemSerAdmin().then(resposta => {
                 cy.contractValidation(resposta, 'post-produtos', 403)
                 ValidaServerest.cadastroDeProdutoSemSerAdmin(resposta)
+            })
+        })
+
+        it('Deve tentar editar um produto sem ser administrador', () => {
+            Serverest.editarProdutoSemSerAdmin().then(resposta => {
+                cy.contractValidation(resposta, 'put-produtos-id', 403)
+                ValidaServerest.edicaoDeProdutoSemSerAdmin(resposta)
             })
         })
     })

@@ -11,6 +11,12 @@ export default class Factory {
         }
     }
 
+    static editarProduto(){
+        return {
+            "nome": faker.commerce.productName(),
+        }
+    }
+
     static gerarUsuario(){
         return {
             "nome": faker.name.firstName(),

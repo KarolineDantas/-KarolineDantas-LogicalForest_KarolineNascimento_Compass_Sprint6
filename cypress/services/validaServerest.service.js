@@ -113,7 +113,7 @@ export default class ValidaServerest {
     }
 
     static validarProdutoSemNome(resposta) {
-        expect(resposta.body.message).to.be.eq('Já existe produto com esse nome')
+        expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')
     }
 
     static cadastroDeProdutoSemSerAdmin(resposta) {
@@ -161,4 +161,15 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.eq('Não é permitido possuir produto duplicado')
     }
     
+    static validarEdicaoProdutoSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Registro alterado com sucesso')
+    }
+
+    static validarCadastroDeProdutoSucesso(resposta) {
+        expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')
+    }
+
+    static edicaoDeProdutoSemSerAdmin(resposta) {
+        expect(resposta.body.message).to.be.eq('Rota exclusiva para administradores')
+    }
 }
