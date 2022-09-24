@@ -41,6 +41,13 @@ describe('Testes para a rota usuários', () => {
         })
     })
 
+    it('Tentativa de cadastro com administrador incorreto', () => {
+        Serverest.cadastroUsuarioAdmInvalido().then(resposta => {
+            cy.contractValidation(resposta, 'post-usuarios', 400)
+            ValidaServerest.validarCadastroAdmInvalido(resposta)
+        })
+    })
+
     it('Deve buscar todos os usuários cadastrados na Serverest', () => {
         Serverest.buscarUsuarios().then(resposta => {
             cy.contractValidation(resposta, 'get-usuarios', 200)
@@ -57,7 +64,7 @@ describe('Testes para a rota usuários', () => {
     })
 
     it('Deve buscar um usuário pelo _id sem sucessso', () => {
-        Serverest.buscarUsuarioPorId().then(resposta => {
+        Serverest.buscarUsuarioPorIdSemSucesso().then(resposta => {
             cy.contractValidation(resposta, 'get-usuarios-id', 400)
             ValidaServerest.validarBuscaDeUsuarioPeloIdSemSucesso(resposta)
         })

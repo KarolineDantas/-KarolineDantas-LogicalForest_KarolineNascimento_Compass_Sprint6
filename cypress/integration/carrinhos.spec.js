@@ -22,10 +22,10 @@ describe('Testes para a rota carrinhos', () => {
             })
         })
 
-        it('Deve consultar os produtos da loja', () => {
-            Serverest.buscarProdutos().then(resposta => {
-                cy.contractValidation(resposta, 'get-produtos', 200)
-                ValidaServerest.validarBuscaDeProdutos(resposta)
+        it('Deve consultar os carrinhos cadastrados', () => {
+            Serverest.buscarCarrinhos().then(resposta => {
+                cy.contractValidation(resposta, 'get-carrinhos', 200)
+                ValidaServerest.validarBuscaDeCarrinhos(resposta)
             })
         })
 
@@ -40,6 +40,13 @@ describe('Testes para a rota carrinhos', () => {
             Serverest.cadastroDeCarrinhoComSucesso().then(resposta => {
                 cy.contractValidation(resposta, 'post-carrinhos', 201)
                 ValidaServerest.validarCadastroDeCarrinhoComSucesso(resposta)
+            })
+        })
+
+        it('Deve cadastrar carrinho com produto inexistente', () => {
+            Serverest.cadastroDeCarrinhoComProdutoInexistente.then(resposta => {
+                cy.contractValidation(resposta, 'post-carrinhos', 400)
+                ValidaServerest.validarCadastroCarrinhoProdutoInexistente(resposta)
             })
         })
 
@@ -79,13 +86,6 @@ describe('Testes para a rota carrinhos', () => {
                 Serverest.logar(usuario).then(res => {
                     Serverest.salvarBearer(res)
                 })
-            })
-        })
-
-        it('Deve consultar os produtos da loja', () => {
-            Serverest.buscarProdutos().then(resposta => {
-                cy.contractValidation(resposta, 'get-produtos', 200)
-                ValidaServerest.validarBuscaDeProdutos(resposta)
             })
         })
         

@@ -69,10 +69,8 @@ export default class ValidaServerest {
 
     static validarBuscaDeUsuarioPorIdSemSucesso(resposta) {
         expect(resposta.status).to.be.equal(400)
-        expect(resposta.body).to.haveOwnProperty('_id')
+        expect(resposta.body.message).to.be.eq('Usuário não encontrado')
     }
-
-   
 
     static validarConclusaoDeComprasSemSucesso(resposta) {
         expect(resposta.body.message).to.be.eq('Token de acesso ausente, inválido, expirado ou usuário do token não existe mais')
@@ -171,5 +169,13 @@ export default class ValidaServerest {
 
     static edicaoDeProdutoSemSerAdmin(resposta) {
         expect(resposta.body.message).to.be.eq('Rota exclusiva para administradores')
+    }
+
+    static validarBuscaDeCarrinhos(resposta) {
+        expect(resposta.body.quantidade).to.be.greaterThan(1)
+    }
+
+    static validarCadastroAdmInvalido(resposta) {
+        expect(resposta.body.administrador).to.be.eq('administrador deve ser true ou false')
     }
 }

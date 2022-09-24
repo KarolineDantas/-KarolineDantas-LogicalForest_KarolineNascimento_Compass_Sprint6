@@ -11,6 +11,14 @@ export default class Factory {
         }
     }
 
+    static gerarProdutoInexistente(){
+        return {
+
+            "idProduto": faker.commerce.productName(),
+            "quantidade": faker.datatype.number(),
+        }
+    }
+
     static editarProduto(){
         return {
             "nome": faker.commerce.productName(),
@@ -23,6 +31,15 @@ export default class Factory {
             "email": faker.internet.email(),
             "password": faker.internet.password(),
             "administrador": 'true',
+        }
+    }
+
+    static gerarUsuarioAdmInvalido(){
+        return {
+            "nome": faker.name.firstName(),
+            "email": faker.internet.email(),
+            "password": faker.internet.password(),
+            "administrador": 'yes',
         }
     }
 

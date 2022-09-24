@@ -106,11 +106,18 @@ export default class Serverest {
     static buscarUsuarioPorId() {
         return cy.request({
             method: 'GET',
-            url: `${URL_USUARIOS}/${Cypress.env('idUsuario')}`,
+            url: `${URL_USUARIOS}/${'0uxuPY0cbmQhpEz1'}`,
             failOnStatusCode: false,
         })
     }
 
+    static buscarUsuarioPorIdSemSucesso() {
+        return cy.request({
+            method: 'GET',
+            url: `${URL_USUARIOS}/${'0uxuPY0cbmQhpE'}`,
+            failOnStatusCode: false,
+        })
+    }
 
     static cadastrarUsuarioSemSucesso() {
         return cy.request({
@@ -132,7 +139,7 @@ export default class Serverest {
             url: URL_USUARIOS,
             body: {
                 "nome": "Fulano da Silva",
-                "email": "teste@tester",
+                "email": "teste@testerr",
                 "password": "teste123",
                 "administrador": "true"
             },
@@ -146,7 +153,7 @@ export default class Serverest {
             url: URL_USUARIOS,
             body: {
                 "nome": "Fulano da Silva",
-                "email": "teste@gmail.com",
+                "email": "teste@gmail.com.br",
                 "password": "a",
                 "administrador": "true"
             },
@@ -160,10 +167,20 @@ export default class Serverest {
             url: URL_USUARIOS,
             body: {
                 "nome": " ",
-                "email": "teste@gmail.com",
+                "email": "teste@yahoooo.com.br",
                 "password": "abcd",
                 "administrador": "true"
             },
+            failOnStatusCode: false,
+        })
+    }
+
+    static cadastroUsuarioAdmInvalido() {
+        let usuario = Factory.gerarUsuarioAdmInvalido()
+        return cy.request({
+            method: 'POST',
+            url: URL_USUARIOS,
+            body: usuario,
             failOnStatusCode: false,
         })
     }
@@ -321,6 +338,10 @@ export default class Serverest {
 
     // Ações para a rota CARRINHOS
 
+    static buscarCarrinhos() {
+        return cy.rest('GET', URL_CARRINHOS)
+    }
+
     static cadastroDeCarrinhoComSucesso() {
         return cy.request({
             method: 'POST',
@@ -419,7 +440,7 @@ export default class Serverest {
         })
     }
 
-    static cadastroDeCarrinhoComProdutoDuplicado() {
+    static cadastroDeCarrinhoComProdutoInexistente() {
         return cy.request({
             method: 'POST',
             url: 'https://serverest.dev/carrinhos',
@@ -427,10 +448,8 @@ export default class Serverest {
             body: {
                 "produtos": [
                     {
-                        "idProduto": "BeeJh5lz3k6kSIzA",
+                        "idProduto": "BeeJh5lz",
                         "quantidade": 1,
-                        "idProduto": "BeeJh5lz3k6kSIzA",
-                        "quantidade": 4
                     }
                 ]
             },
