@@ -5,9 +5,11 @@
 
 * [Sobre o projeto](#sobre-o-projeto)
 * [Como executar o projeto](#como-executar-o-projeto)
+* [Comandos importantes](#comandos-importantes)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
 * [Pessoas Contribuidoras](#pessoas-contribuidoras)
-* [Licença](#licença)
+
+
 
 ## Sobre o projeto
 Olá! Este projeto foi criado para avaliação da Compass.uol. No programa de estágio da empresa, o principal desafio da Sprint 6 é elaborar um plano de teste sobre a [API ServeRest](https://serverest.dev/), bem como realizar a automação dos principais fluxos da aplicação.
@@ -35,13 +37,16 @@ Neste repositório você encontrará duas branches:
   
   A) A pasta "integration" que contém os testes de cada uma das rotas da API ServeRest.
   
-  ![image](https://user-images.githubusercontent.com/107884724/187078268-144e3790-4cca-47e3-9a11-ec6e2f5cac1f.png)
+     ![integration](https://user-images.githubusercontent.com/107884724/192630017-fa41f89c-501c-4160-b9e4-ed2e07db9601.png)
+
 
   B) A pasta "services" que contém os arquivos: 
   - "serverest.service.js", que contém as asções que podemos realizar na API, como buscar usuários, cadastrar produtos, entre outros;
   - "validaServerest.service.js", que contém as validações das ações mencionadas anteriormente.
+  
+    ![service](https://user-images.githubusercontent.com/107884724/192630180-b797430e-e23c-40c3-8659-bdb547cbea86.png)
 
-  ![image](https://user-images.githubusercontent.com/107884724/187078278-4011d6e3-fc19-4c81-86a8-3f993c831fce.png)
+  
 
 
 ## Comandos importantes
@@ -59,5 +64,3 @@ Neste repositório você encontrará duas branches:
 ## Pessoas Contribuidoras
 - Scrum Master Luís Augusto
 - Colegas de estágio da Compass
-
-## [Lic
