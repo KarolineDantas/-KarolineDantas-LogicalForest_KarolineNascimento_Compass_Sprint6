@@ -16,7 +16,7 @@ describe('Testes para a rota produtos', () => {
         Factory.gerarUsuario
         Serverest.cadastrarUsuarioComSucesso().then( resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 201)
-            ValidaServerest.validarCadastroDeProdutoComSucesso(resposta)
+            ValidaServerest.validarCadastroUsuarioSucesso(resposta)
         })
     })
 
@@ -58,6 +58,20 @@ describe('Testes para a rota produtos', () => {
             })
         })
 
+        it('Deve tentar cadastrar produto com quantidade menor que 0', () => {
+            Serverest.cadastroProdutoQtdeInvalida().then(resposta => {
+                cy.contractValidation(resposta, 'post-produtos', 400)
+                ValidaServerest.validarProdutoQtdeInvalida(resposta)
+            })
+        })
+
+        it('Deve tentar cadastrar produto com preço negativo', () => {
+            Serverest.cadastroProdutoPrecoInvalido().then(resposta => {
+                cy.contractValidation(resposta, 'post-produtos', 400)
+                ValidaServerest.validarProdutoPrecoInvalido(resposta)
+            })
+        })
+
         it('Deve editar um produto com sucesso', () => {
             Serverest.editarProdutoComSucesso().then(resposta => {
                 cy.contractValidation(resposta, 'put-produtos-id', 200) 
@@ -83,6 +97,13 @@ describe('Testes para a rota produtos', () => {
                 cy.contractValidation(resposta, 'get-produtos-id', 200) 
                 ValidaServerest.validarBuscaDeProdutoPeloId(resposta)
             })
+        })
+    })
+
+    it('Cadastro de usuário não administrador com sucesso', () => {
+        Serverest.cadastrarUsuarioNaoAdm().then( resposta => {
+            cy.contractValidation(resposta, 'post-usuarios', 201)
+            ValidaServerest.validarCadastroUsuarioSucesso(resposta)
         })
     })
 

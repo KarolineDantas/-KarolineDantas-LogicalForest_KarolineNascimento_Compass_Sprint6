@@ -31,8 +31,8 @@ export default class Serverest {
     static buscarSegundoUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
-                email: res.body.usuarios[4].email,
-                password: res.body.usuarios[4].password
+                email: res.body.usuarios[3].email,
+                password: res.body.usuarios[3].password
             }).as('segundoUsuarioLogin')
         })
     }
@@ -185,6 +185,15 @@ export default class Serverest {
         })
     }
 
+    static cadastrarUsuarioNaoAdm() {
+        let usuario = Factory.gerarUsuarioNaoAdm()
+        return cy.request({
+            method: 'POST',
+            url: URL_USUARIOS,
+            body: usuario,
+            failOnStatusCode: false,
+        })
+    }
 
 
     // Ações da rota PRODUTOS
@@ -219,6 +228,42 @@ export default class Serverest {
             body: {
                 "nome": "Logitech MX Vertical",
                 "preco": 470,
+                "descricao": "Mouse",
+                "quantidade": 381
+              },
+            failOnStatusCode: false,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    static cadastroProdutoQtdeInvalida() {
+
+        return cy.request({
+            method: 'POST',
+            url: URL_PRODUTOS,
+            body: {
+                "nome": "Logitech MX Vertical",
+                "preco": 470,
+                "descricao": "Mouse",
+                "quantidade": -1
+              },
+            failOnStatusCode: false,
+            auth: {
+                bearer: Cypress.env('bearer')
+            }
+        })
+    }
+
+    static cadastroProdutoPrecoInvalido() {
+
+        return cy.request({
+            method: 'POST',
+            url: URL_PRODUTOS,
+            body: {
+                "nome": "Logitech MX Vertical",
+                "preco": -1,
                 "descricao": "Mouse",
                 "quantidade": 381
               },
@@ -339,7 +384,10 @@ export default class Serverest {
     // Ações para a rota CARRINHOS
 
     static buscarCarrinhos() {
-        return cy.rest('GET', URL_CARRINHOS)
+        return cy.request({
+            method: 'GET',
+            url: URL_CARRINHOS
+        })
     }
 
     static cadastroDeCarrinhoComSucesso() {
@@ -374,18 +422,6 @@ export default class Serverest {
                 ]
             },
             failOnStatusCode: false,
-        })
-    }
-
-
-    static concluirCompra() {
-        return cy.request({
-            method: 'DELETE',
-            url: 'https://serverest.dev/carrinhos/concluir-compra',
-            failOnStatusCode: false,
-            auth: {
-                bearer: Cypress.env('bearer'),
-            }
         })
     }
 
@@ -425,6 +461,17 @@ export default class Serverest {
         return cy.request({
             method: 'DELETE',
             url: 'https://serverest.dev/carrinhos/cancelar-compra',
+            failOnStatusCode: false,
+            auth: {
+                bearer: Cypress.env('bearer'),
+            }
+        })
+    }
+
+    static concluirCompra() {
+        return cy.request({
+            method: 'DELETE',
+            url: 'https://serverest.dev/carrinhos/concluir-compra',
             failOnStatusCode: false,
             auth: {
                 bearer: Cypress.env('bearer'),

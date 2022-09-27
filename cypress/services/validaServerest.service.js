@@ -110,6 +110,14 @@ export default class ValidaServerest {
         expect(resposta.body.message).to.be.eq('Já existe produto com esse nome')
     }
 
+    static validarProdutoQtdeInvalida(resposta) {
+        expect(resposta.body.quantidade).to.be.eq('quantidade deve ser maior ou igual a 0')
+    }
+
+    static validarProdutoPrecoInvalido(resposta) {
+        expect(resposta.body.preco).to.be.eq('preco deve ser um número positivo')
+    }
+
     static validarProdutoSemNome(resposta) {
         expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')
     }
@@ -148,7 +156,7 @@ export default class ValidaServerest {
     }
 
     static validarCadastroCarrinhoProdutoInexistente(resposta) {
-        expect(resposta.body.message).to.be.eq('Produto não encontrado')
+        expect(resposta.body.message).to.be.eq('Não é permitido ter mais de 1 carrinho')
     }
 
     static validarCadastroDeCarrinhoSemToken(resposta) {
@@ -169,10 +177,6 @@ export default class ValidaServerest {
 
     static edicaoDeProdutoSemSerAdmin(resposta) {
         expect(resposta.body.message).to.be.eq('Rota exclusiva para administradores')
-    }
-
-    static validarBuscaDeCarrinhos(resposta) {
-        expect(resposta.body.quantidade).to.be.greaterThan(1)
     }
 
     static validarCadastroAdmInvalido(resposta) {
