@@ -62,16 +62,16 @@ describe('Testes para a rota carrinhos', () => {
         })
 
         it('Deve cancelar compra sem sucesso', () => {
-            Serverest.cancelarCompraSemSucesso().then( resposta => {
-                cy.contractValidation(resposta, 'delete-carrinhos', 401) 
-                ValidaServerest.validarConclusaoDeComprasSemSucesso(resposta) 
+            Serverest.cancelarCompraSemSucesso().then(resposta => {
+                cy.contractValidation(resposta, 'delete-carrinhos', 401)
+                ValidaServerest.validarConclusaoDeComprasSemSucesso(resposta)
             })
         })
 
         it('Deve cancelar compra com sucesso', () => {
-            Serverest.cancelarCompraComSucesso().then( resposta => {
-                cy.contractValidation(resposta, 'delete-carrinhos', 200) 
-                ValidaServerest.validarConclusaoDeComprasSucesso(resposta) 
+            Serverest.cancelarCompraComSucesso().then(resposta => {
+                cy.contractValidation(resposta, 'delete-carrinhos', 200)
+                ValidaServerest.validarConclusaoDeComprasSucesso(resposta)
             })
         })
     })
@@ -85,12 +85,12 @@ describe('Testes para a rota carrinhos', () => {
                 })
             })
         })
-        
-        
+
+
         it('Deve concluir compra sem sucesso', () => {
-            Serverest.concluirCompraSemSucesso().then( resposta => {
-                cy.contractValidation(resposta, 'delete-carrinhos', 401) 
-                ValidaServerest.validarConclusaoDeComprasSemSucesso(resposta) 
+            Serverest.concluirCompraSemSucesso().then(resposta => {
+                cy.contractValidation(resposta, 'delete-carrinhos', 401)
+                ValidaServerest.validarConclusaoDeComprasSemSucesso(resposta)
             })
         })
 
@@ -102,9 +102,9 @@ describe('Testes para a rota carrinhos', () => {
         })
 
         it('Deve concluir compra com sucesso', () => {
-            Serverest.concluirCompra().then( resposta => {
-                cy.contractValidation(resposta, 'delete-carrinhos', 200) 
-                ValidaServerest.validarConclusaoDeComprasSucesso(resposta) 
+            Serverest.concluirCompra().then(resposta => {
+                cy.contractValidation(resposta, 'delete-carrinhos', 200)
+                ValidaServerest.validarConclusaoDeComprasSucesso(resposta)
             })
         })
     })

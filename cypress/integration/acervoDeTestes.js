@@ -101,6 +101,11 @@ it('Deve buscar todos os usuários cadastrados na Serverest', () => {
     })
 })
 
+// static validarBuscaDeUsuarioPorIdSemSucesso(resposta) {
+//     expect(resposta.status).to.be.equal(400)
+//     expect(resposta.body.message).to.be.eq('Usuário não encontrado')
+// }
+
 
 
 // Testes Produtos
@@ -192,6 +197,26 @@ it('Deve deletar o produto cadastrado', () => {
 //             bearer: Cypress.env('bearer')
 //         }
 //     })
+// }
+
+// static deletarProdutoCadastrado() {
+//     return cy.request({
+//         method: 'DELETE',
+//         url: `${URL_PRODUTOS}/${Cypress.env('idProdutoCadastrado')}`,
+//         auth: {
+//             bearer: Cypress.env('bearer')
+//         }
+//     })
+// }
+
+
+// static validarCadastroDeCarrinhoComProdutoDuplicado(resposta) {
+//     expect(resposta.body.message).to.be.eq('Não é permitido possuir produto duplicado')
+// }
+
+
+// static validarCadastroDeCarrinhoParaMesmoUsuario(resposta) {
+//     expect(resposta.body.message).to.be.eq('Não é permitido ter mais de 1 carrinho')
 // }
 
 // Testes Carrinhos

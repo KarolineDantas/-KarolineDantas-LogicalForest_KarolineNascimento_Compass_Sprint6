@@ -59,7 +59,7 @@ describe('Testes para a rota usuários', () => {
         Factory.gerarUsuario
         Serverest.cadastrarUsuarioComSucesso().then(resposta => {
             cy.contractValidation(resposta, 'post-usuarios', 201)
-            ValidaServerest.validarCadastroDeProdutoComSucesso(resposta)
+            ValidaServerest.validarCadastroUsuarioSucesso(resposta)
         })
     })
 
