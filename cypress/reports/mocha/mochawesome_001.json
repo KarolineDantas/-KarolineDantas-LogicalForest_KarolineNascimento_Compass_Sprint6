@@ -1,15 +1,15 @@
 {
   "stats": {
-    "suites": 3,
-    "tests": 9,
-    "passes": 4,
+    "suites": 1,
+    "tests": 5,
+    "passes": 2,
     "pending": 0,
-    "failures": 5,
-    "start": "2022-09-19T14:55:41.593Z",
-    "end": "2022-09-19T14:55:45.388Z",
-    "duration": 3795,
-    "testsRegistered": 9,
-    "passPercent": 44.44444444444444,
+    "failures": 3,
+    "start": "2022-09-27T20:08:46.392Z",
+    "end": "2022-09-27T20:08:47.983Z",
+    "duration": 1591,
+    "testsRegistered": 5,
+    "passPercent": 40,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,17 +18,17 @@
   },
   "results": [
     {
-      "uuid": "a1ef4c8d-ae62-4fb5-b421-c1538364d82d",
+      "uuid": "decf2015-ff92-4496-8622-d209020be74d",
       "title": "",
-      "fullFile": "cypress/integration/quartoFluxo.spec.js",
-      "file": "cypress/integration/quartoFluxo.spec.js",
+      "fullFile": "cypress/integration/login.spec.js",
+      "file": "cypress/integration/login.spec.js",
       "beforeHooks": [],
       "afterHooks": [],
       "tests": [],
       "suites": [
         {
-          "uuid": "761dc168-fba7-4584-ac42-08d554787634",
-          "title": "Quarto fluxo para automação",
+          "uuid": "2aaa9058-efdb-4101-b965-ae5034781b19",
+          "title": "Testes para a rota de login",
           "fullFile": "",
           "file": "",
           "beforeHooks": [],
@@ -36,9 +36,9 @@
           "tests": [
             {
               "title": "Logar sem sucesso",
-              "fullTitle": "Quarto fluxo para automação Logar sem sucesso",
+              "fullTitle": "Testes para a rota de login Logar sem sucesso",
               "timedOut": null,
-              "duration": 219,
+              "duration": 214,
               "state": "passed",
               "speed": "fast",
               "pass": true,
@@ -47,16 +47,16 @@
               "context": null,
               "code": "_serverest.default.logarSemSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginSemSucesso(resposta);\n});",
               "err": {},
-              "uuid": "34da3888-6f16-4440-bd38-8d458e88c773",
-              "parentUUID": "761dc168-fba7-4584-ac42-08d554787634",
+              "uuid": "727f7603-62aa-4d0b-80cb-45f1dc490274",
+              "parentUUID": "2aaa9058-efdb-4101-b965-ae5034781b19",
               "isHook": false,
               "skipped": false
             },
             {
               "title": "Tentativa de login sem email",
-              "fullTitle": "Quarto fluxo para automação Tentativa de login sem email",
+              "fullTitle": "Testes para a rota de login Tentativa de login sem email",
               "timedOut": null,
-              "duration": 338,
+              "duration": 295,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -66,19 +66,19 @@
               "code": "_serverest.default.loginSemEmail().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginSemEmail(resposta);\n});",
               "err": {
                 "message": "AssertionError: expected undefined to equal 'email não pode ficar em branco'",
-                "estack": "AssertionError: expected undefined to equal 'email não pode ficar em branco'\n    at Function.validarLoginSemEmail (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:706:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:212:32)",
+                "estack": "AssertionError: expected undefined to equal 'email não pode ficar em branco'\n    at Function.validarLoginSemEmail (https://serverest.dev/__cypress/tests?p=cypress\\integration\\login.spec.js:785:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\login.spec.js:236:32)",
                 "diff": null
               },
-              "uuid": "f4db3852-1de3-4a7d-a15b-e29dc124ef36",
-              "parentUUID": "761dc168-fba7-4584-ac42-08d554787634",
+              "uuid": "a037679c-b86a-4a83-ba59-40917bd88e79",
+              "parentUUID": "2aaa9058-efdb-4101-b965-ae5034781b19",
               "isHook": false,
               "skipped": false
             },
             {
               "title": "Tentativa de login sem senha",
-              "fullTitle": "Quarto fluxo para automação Tentativa de login sem senha",
+              "fullTitle": "Testes para a rota de login Tentativa de login sem senha",
               "timedOut": null,
-              "duration": 312,
+              "duration": 307,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -87,20 +87,20 @@
               "context": null,
               "code": "_serverest.default.loginSemSenha().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginSemSenha(resposta);\n});",
               "err": {
-                "message": "AssertionError: expected undefined to equal 'email não pode ficar em branco'",
-                "estack": "AssertionError: expected undefined to equal 'email não pode ficar em branco'\n    at Function.validarLoginSemSenha (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:710:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:219:32)",
+                "message": "AssertionError: expected undefined to equal 'Senha inválida, digite novamente'",
+                "estack": "AssertionError: expected undefined to equal 'Senha inválida, digite novamente'\n    at Function.validarLoginSemSenha (https://serverest.dev/__cypress/tests?p=cypress\\integration\\login.spec.js:789:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\login.spec.js:243:32)",
                 "diff": null
               },
-              "uuid": "be723811-1c17-4655-8b2a-d8ac12748d48",
-              "parentUUID": "761dc168-fba7-4584-ac42-08d554787634",
+              "uuid": "a94af8c4-969e-424a-99cc-51c3bf8828e9",
+              "parentUUID": "2aaa9058-efdb-4101-b965-ae5034781b19",
               "isHook": false,
               "skipped": false
             },
             {
               "title": "Tentativa de login com e-mail inválido",
-              "fullTitle": "Quarto fluxo para automação Tentativa de login com e-mail inválido",
+              "fullTitle": "Testes para a rota de login Tentativa de login com e-mail inválido",
               "timedOut": null,
-              "duration": 317,
+              "duration": 307,
               "state": "failed",
               "speed": null,
               "pass": false,
@@ -110,171 +110,46 @@
               "code": "_serverest.default.loginEmailInvalido().then(resposta => {\n  cy.contractValidation(resposta, 'post-login', 400);\n  _validaServerest.default.validarLoginEmailInvalido(resposta);\n});",
               "err": {
                 "message": "AssertionError: expected undefined to equal 'Email deve ser um email válido'",
-                "estack": "AssertionError: expected undefined to equal 'Email deve ser um email válido'\n    at Function.validarLoginEmailInvalido (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:714:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:226:32)",
+                "estack": "AssertionError: expected undefined to equal 'Email deve ser um email válido'\n    at Function.validarLoginEmailInvalido (https://serverest.dev/__cypress/tests?p=cypress\\integration\\login.spec.js:793:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\login.spec.js:250:32)",
                 "diff": null
               },
-              "uuid": "78bc783c-58e4-482a-af03-844bf25d25dc",
-              "parentUUID": "761dc168-fba7-4584-ac42-08d554787634",
+              "uuid": "1a915a7b-3790-4a8f-92e7-15193367b477",
+              "parentUUID": "2aaa9058-efdb-4101-b965-ae5034781b19",
               "isHook": false,
               "skipped": false
             },
             {
-              "title": "Deve tentar cadastrar carrinho sem token",
-              "fullTitle": "Quarto fluxo para automação Deve tentar cadastrar carrinho sem token",
+              "title": "Deve logar com sucesso",
+              "fullTitle": "Testes para a rota de login Deve logar com sucesso",
               "timedOut": null,
-              "duration": 175,
+              "duration": 406,
               "state": "passed",
               "speed": "fast",
               "pass": true,
               "fail": false,
               "pending": false,
               "context": null,
-              "code": "_serverest.default.cadastroDeCarrinhoSemToken().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 401);\n  _validaServerest.default.validarCadastroDeCarrinhoSemToken(resposta);\n});",
+              "code": "_serverest.default.buscarUsuarioParaLogin();\ncy.get('@usuarioLogin').then(usuario => {\n  _serverest.default.logar(usuario).then(res => {\n    _serverest.default.salvarBearer(res);\n  });\n});",
               "err": {},
-              "uuid": "81bf6914-2df0-4251-a7f1-0565ef602387",
-              "parentUUID": "761dc168-fba7-4584-ac42-08d554787634",
+              "uuid": "4b7b9c10-fb7c-4917-8f00-a7975dfeb3ba",
+              "parentUUID": "2aaa9058-efdb-4101-b965-ae5034781b19",
               "isHook": false,
               "skipped": false
             }
           ],
-          "suites": [
-            {
-              "uuid": "d03b2014-5b30-4f2a-9440-0e6c6f6916a7",
-              "title": "Logar com sucesso",
-              "fullFile": "",
-              "file": "",
-              "beforeHooks": [],
-              "afterHooks": [],
-              "tests": [
-                {
-                  "title": "Deve cadastrar carrinho com sucesso",
-                  "fullTitle": "Quarto fluxo para automação Logar com sucesso Deve cadastrar carrinho com sucesso",
-                  "timedOut": null,
-                  "duration": 513,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "_serverest.default.cadastroDeCarrinhoComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 201);\n  _validaServerest.default.validarCadastroDeCarrinhoComSucesso(resposta);\n});",
-                  "err": {},
-                  "uuid": "43d43043-959c-45e3-b116-91b8f5d0fe76",
-                  "parentUUID": "d03b2014-5b30-4f2a-9440-0e6c6f6916a7",
-                  "isHook": false,
-                  "skipped": false
-                },
-                {
-                  "title": "Deve tentar cadastrar mais de um carrinho para o mesmo usuário",
-                  "fullTitle": "Quarto fluxo para automação Logar com sucesso Deve tentar cadastrar mais de um carrinho para o mesmo usuário",
-                  "timedOut": null,
-                  "duration": 525,
-                  "state": "passed",
-                  "speed": "fast",
-                  "pass": true,
-                  "fail": false,
-                  "pending": false,
-                  "context": null,
-                  "code": "_serverest.default.cadastroDeCarrinhoParaMesmoUsuario().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 401);\n  _validaServerest.default.validarCadastroDeCarrinhoParaMesmoUsuario(resposta);\n});",
-                  "err": {},
-                  "uuid": "9155733c-c2df-4e45-82a4-f319e10dc5fd",
-                  "parentUUID": "d03b2014-5b30-4f2a-9440-0e6c6f6916a7",
-                  "isHook": false,
-                  "skipped": false
-                }
-              ],
-              "suites": [],
-              "passes": [
-                "43d43043-959c-45e3-b116-91b8f5d0fe76",
-                "9155733c-c2df-4e45-82a4-f319e10dc5fd"
-              ],
-              "failures": [],
-              "pending": [],
-              "skipped": [],
-              "duration": 1038,
-              "root": false,
-              "rootEmpty": false,
-              "_timeout": 2000
-            },
-            {
-              "uuid": "11a3970b-9e90-4460-a9ca-93db97dbd92a",
-              "title": "Logar",
-              "fullFile": "",
-              "file": "",
-              "beforeHooks": [],
-              "afterHooks": [],
-              "tests": [
-                {
-                  "title": "Deve cadastrar carrinho com sucesso",
-                  "fullTitle": "Quarto fluxo para automação Logar Deve cadastrar carrinho com sucesso",
-                  "timedOut": null,
-                  "duration": 681,
-                  "state": "failed",
-                  "speed": null,
-                  "pass": false,
-                  "fail": true,
-                  "pending": false,
-                  "context": null,
-                  "code": "_serverest.default.cadastroDeCarrinhoComSucesso().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 201);\n  _validaServerest.default.validarCadastroDeCarrinhoComSucesso(resposta);\n});",
-                  "err": {
-                    "message": "AssertionError: expected 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais' to equal 'Cadastro realizado com sucesso'",
-                    "estack": "AssertionError: expected 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais' to equal 'Cadastro realizado com sucesso'\n    at Function.validarCadastroDeCarrinhoComSucesso (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:674:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:275:34)",
-                    "diff": "- 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais'\n+ 'Cadastro realizado com sucesso'\n"
-                  },
-                  "uuid": "975efd98-7ca4-45ad-bf15-880eacc12765",
-                  "parentUUID": "11a3970b-9e90-4460-a9ca-93db97dbd92a",
-                  "isHook": false,
-                  "skipped": false
-                },
-                {
-                  "title": "Deve tentar cadastrar carrinho com produto duplicado",
-                  "fullTitle": "Quarto fluxo para automação Logar Deve tentar cadastrar carrinho com produto duplicado",
-                  "timedOut": null,
-                  "duration": 644,
-                  "state": "failed",
-                  "speed": null,
-                  "pass": false,
-                  "fail": true,
-                  "pending": false,
-                  "context": null,
-                  "code": "_serverest.default.cadastroDeCarrinhoComProdutoDuplicado().then(resposta => {\n  cy.contractValidation(resposta, 'post-carrinhos', 400);\n  _validaServerest.default.validarCadastroDeCarrinhoComProdutoDuplicado(resposta);\n});",
-                  "err": {
-                    "message": "AssertionError: expected 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais' to equal 'Não é permitido possuir produto duplicado'",
-                    "estack": "AssertionError: expected 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais' to equal 'Não é permitido possuir produto duplicado'\n    at Function.validarCadastroDeCarrinhoComProdutoDuplicado (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:744:41)\n    at Context.eval (https://serverest.dev/__cypress/tests?p=cypress\\integration\\quartoFluxo.spec.js:282:34)",
-                    "diff": "- 'Token de acesso ausente, inválido, expirado ou usuário do token não existe mais'\n+ 'Não é permitido possuir produto duplicado'\n"
-                  },
-                  "uuid": "e16f99c7-b480-40c7-ba37-fc7e2042851b",
-                  "parentUUID": "11a3970b-9e90-4460-a9ca-93db97dbd92a",
-                  "isHook": false,
-                  "skipped": false
-                }
-              ],
-              "suites": [],
-              "passes": [],
-              "failures": [
-                "975efd98-7ca4-45ad-bf15-880eacc12765",
-                "e16f99c7-b480-40c7-ba37-fc7e2042851b"
-              ],
-              "pending": [],
-              "skipped": [],
-              "duration": 1325,
-              "root": false,
-              "rootEmpty": false,
-              "_timeout": 2000
-            }
-          ],
+          "suites": [],
           "passes": [
-            "34da3888-6f16-4440-bd38-8d458e88c773",
-            "81bf6914-2df0-4251-a7f1-0565ef602387"
+            "727f7603-62aa-4d0b-80cb-45f1dc490274",
+            "4b7b9c10-fb7c-4917-8f00-a7975dfeb3ba"
           ],
           "failures": [
-            "f4db3852-1de3-4a7d-a15b-e29dc124ef36",
-            "be723811-1c17-4655-8b2a-d8ac12748d48",
-            "78bc783c-58e4-482a-af03-844bf25d25dc"
+            "a037679c-b86a-4a83-ba59-40917bd88e79",
+            "a94af8c4-969e-424a-99cc-51c3bf8828e9",
+            "1a915a7b-3790-4a8f-92e7-15193367b477"
           ],
           "pending": [],
           "skipped": [],
-          "duration": 1361,
+          "duration": 1529,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000

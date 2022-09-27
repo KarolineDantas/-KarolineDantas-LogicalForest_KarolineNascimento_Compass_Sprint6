@@ -1,3 +1,4 @@
+import { getRules } from "ajv/dist/compile/rules"
 import Factory from "../fixtures/factory"
 
 const URL_USUARIOS = '/usuarios'
@@ -68,8 +69,8 @@ export default class Serverest {
     static buscarUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
-                email: res.body.usuarios[1].email,
-                password: res.body.usuarios[1].password
+                email: res.body.usuarios[3].email,
+                password: res.body.usuarios[3].password
             }).as('usuarioLogin')
         })
     }
@@ -78,8 +79,8 @@ export default class Serverest {
     static buscarSegundoUsuarioParaLogin() {
         cy.request(URL_USUARIOS).then(res => {
             cy.wrap({
-                email: res.body.usuarios[3].email,
-                password: res.body.usuarios[3].password
+                email: res.body.usuarios[2].email,
+                password: res.body.usuarios[2].password
             }).as('segundoUsuarioLogin')
         })
     }
@@ -124,7 +125,7 @@ export default class Serverest {
             url: URL_USUARIOS,
             body: {
                 "nome": "Fulano da Silva",
-                "email": "teste@gmail.com.br",
+                "email": "invalido@gmail.com.br",
                 "password": "a",
                 "administrador": "true"
             },
@@ -137,8 +138,8 @@ export default class Serverest {
             method: 'POST',
             url: URL_USUARIOS,
             body: {
-                "nome": " ",
-                "email": "teste@yahoooo.com.br",
+                "nome": "         ",
+                "email": "testeinvalido@yahoo.com.br",
                 "password": "abcd",
                 "administrador": "true"
             },
@@ -182,7 +183,7 @@ export default class Serverest {
     static buscarUsuarioPorId() {
         return cy.request({
             method: 'GET',
-            url: `${URL_USUARIOS}/${'0uxuPY0cbmQhpEz1'}`,
+            url: `${URL_USUARIOS}/${'3oXqmgnNhNt5QqLj'}`,
             failOnStatusCode: false,
         })
     }
@@ -237,7 +238,7 @@ export default class Serverest {
             method: 'POST',
             url: URL_PRODUTOS,
             body: produto,
-            failOnStatusCode: true,
+            failOnStatusCode: false,
             auth: {
                 bearer: Cypress.env('bearer')
             }
@@ -302,7 +303,7 @@ export default class Serverest {
             method: 'POST',
             url: URL_PRODUTOS,
             body: {
-                "nome": " ",
+                "nome": "    ",
                 "preco": 3,
                 "descricao": "Mouse",
                 "quantidade": 381

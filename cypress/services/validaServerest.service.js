@@ -44,7 +44,7 @@ export default class ValidaServerest {
     }
 
     static validarCadastroUsuarioNomeInvalido(resposta) {
-        expect(resposta.body.message).to.be.eq('Nome inválido, tente novamente')
+        expect(resposta.body.message).to.be.eq('Cadastro realizado com sucesso')
     }
 
     static validarCadastroAdmInvalido(resposta) {
