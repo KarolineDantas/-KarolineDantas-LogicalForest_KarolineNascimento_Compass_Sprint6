@@ -1,4 +1,4 @@
-# -KarolineDantas-LogicalForest_KarolineNascimento_Compass_Sprint6
+
 <h1 align="center"> Automação da API ServeRest </h1> 
 
 ## Índice 
